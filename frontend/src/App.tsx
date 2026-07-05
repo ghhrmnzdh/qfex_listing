@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import type { HorizonKey, IndexData } from "./types";
-import { loadIndex, type LoadProgress } from "./api";
+import { loadIndex, apiAvailable, type LoadProgress } from "./api";
 import { statsFor } from "./lib";
 import { enter, useStill } from "./anim";
 import Hero from "./components/Hero";
@@ -10,6 +10,7 @@ import StatsBand from "./components/StatsBand";
 import IndexTable from "./components/IndexTable";
 import LoadingScreen from "./components/LoadingScreen";
 import SyncOverlay from "./components/SyncOverlay";
+import Methodology from "./components/Methodology";
 
 const FILTERS: { key: string; label: string; test: (c: string) => boolean }[] = [
   { key: "all", label: "All", test: () => true },
@@ -24,15 +25,20 @@ export default function App() {
   const [loadProg, setLoadProg] = useState<LoadProgress | null>(null);
   const [horizon, setHorizon] = useState<HorizonKey>("1M");
   const [filter, setFilter] = useState("all");
-  const [syncing, setSyncing] = useState(
-    typeof window !== "undefined" && new URLSearchParams(window.location.search).has("sync")
-  );
+  const [hasApi, setHasApi] = useState(false);
+  const [syncing, setSyncing] = useState(false);
   const still = useStill();
 
   const load = () =>
     loadIndex(setLoadProg).then((d) => { setData(d); setErr(null); }).catch((e) => setErr(String(e)));
 
-  useEffect(() => { load(); }, []); // eslint-disable-line
+  useEffect(() => {
+    load();
+    apiAvailable().then((ok) => {
+      setHasApi(ok);
+      if (ok && new URLSearchParams(window.location.search).has("sync")) setSyncing(true);
+    });
+  }, []); // eslint-disable-line
 
   const filtered = useMemo(() => {
     if (!data) return [];
@@ -70,9 +76,15 @@ export default function App() {
               </p>
             </div>
             <div className="section-controls">
-              <button className="sync-btn" onClick={() => setSyncing(true)} title="Re-download every market live from api.qfex.com">
-                <span className="sync-btn-dot" /> Sync from QFEX
-              </button>
+              {hasApi ? (
+                <button className="sync-btn" onClick={() => setSyncing(true)} title="Fetch any missing markets live from api.qfex.com (cached, resumable)">
+                  <span className="sync-btn-dot" /> Sync from QFEX
+                </button>
+              ) : (
+                <span className="static-badge mono" title="Static snapshot — run the backend locally to sync live from QFEX">
+                  static snapshot
+                </span>
+              )}
               <HorizonScrubber horizons={data.horizons} value={horizon} onChange={setHorizon} />
             </div>
           </div>
@@ -108,6 +120,8 @@ export default function App() {
 
           <IndexTable listings={filtered} horizon={horizon} benchName={data.benchmark.name} />
         </section>
+
+        <Methodology data={data} />
 
         <footer className="footer">
           <div className="mono">

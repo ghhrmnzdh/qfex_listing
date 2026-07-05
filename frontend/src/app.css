@@ -163,6 +163,18 @@ button.th:hover { color: var(--text-dim); }
 .detail-meta { margin-top: 14px; font-size: 11.5px; color: var(--text-faint); line-height: 1.7; }
 .detail-note { margin-top: 8px; color: var(--text-faint); font-style: italic; font-family: var(--font-ui); }
 
+.static-badge { font-size: 11.5px; color: var(--text-faint); border: 1px solid var(--line); border-radius: 999px; padding: 7px 14px; letter-spacing: 0.04em; }
+
+/* ====================== methodology ====================== */
+.method { padding: 64px 0 8px; margin-top: 40px; border-top: 1px solid var(--line-soft); }
+.method .eyebrow { display: block; margin-bottom: 26px; }
+.method-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--line-soft); border: 1px solid var(--line-soft); border-radius: var(--radius); overflow: hidden; }
+.method-row { background: var(--ink-850); padding: 20px 22px; display: flex; flex-direction: column; gap: 8px; }
+.method-k { font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gold); }
+.method-v { font-size: 13.5px; color: var(--text-dim); line-height: 1.55; }
+.method-caveat { font-size: 12.5px; color: var(--text-faint); line-height: 1.6; margin-top: 22px; max-width: 92ch; }
+.method-caveat em { color: var(--text-dim); font-style: italic; }
+
 /* ====================== footer ====================== */
 .footer { margin-top: 56px; padding-top: 22px; border-top: 1px solid var(--line-soft); color: var(--text-faint); }
 .footer .mono { font-size: 12px; }
@@ -226,6 +238,7 @@ button.th:hover { color: var(--text-dim); }
   .hero-verdicts { grid-template-columns: repeat(2, 1fr); }
   .stats-grid { grid-template-columns: repeat(2, 1fr); }
   .section-head { flex-direction: column; align-items: flex-start; }
+  .method-grid { grid-template-columns: 1fr; }
   .detail-inner { grid-template-columns: 1fr; gap: 20px; }
   .thead { display: none; }
   .row {

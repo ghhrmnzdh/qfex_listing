@@ -337,6 +337,16 @@ def build(progress=None) -> dict:
     return out
 
 
+def _write_site_data():
+    """Regenerate the slim static payload (frontend/public/site-data.json) that the
+    GitHub Pages build serves — results only, no raw price history."""
+    try:
+        import make_site_data
+        make_site_data.main()
+    except Exception as e:  # noqa
+        print(f"  (site-data not written: {e})")
+
+
 def build_events(force: bool = False):
     """Generator that yields progress dicts while building from QFEX, then writes
     index.json and yields a final {'phase':'done', ...}. Powers the SSE sync.
@@ -384,9 +394,7 @@ def build_events(force: bool = False):
         "listings": computed,
     }
     (DATA_DIR / "index.json").write_text(json.dumps(out, indent=1))
-    pub = HERE.parent / "frontend" / "public"
-    pub.mkdir(parents=True, exist_ok=True)
-    (pub / "index-data.json").write_text(json.dumps(out))
+    _write_site_data()
     yield {"phase": "done", "total": total, "counts": out["counts"],
            "downloaded": downloaded, "cached": total - downloaded,
            "generated": out["generated"]}
@@ -400,9 +408,7 @@ def main():
     out = build(progress=prog)
     print()
     (DATA_DIR / "index.json").write_text(json.dumps(out, indent=1))
-    pub = HERE.parent / "frontend" / "public"
-    pub.mkdir(parents=True, exist_ok=True)
-    (pub / "index-data.json").write_text(json.dumps(out))
+    _write_site_data()
     c = out["counts"]
     print(f"Wrote index.json — {c['priced']}/{c['markets']} markets priced, "
           f"{c['with_tweet']} matched to a tweet.")

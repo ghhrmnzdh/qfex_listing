@@ -9,8 +9,9 @@ export interface ReturnRec {
 
 export interface PricePoint {
   date: string;
-  close: number;
+  close?: number;
   ret: number;
+  bench_ret?: number | null;
 }
 
 export interface Source {

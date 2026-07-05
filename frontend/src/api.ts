@@ -10,8 +10,27 @@ export interface LoadProgress {
  * progress. Primary source is the FastAPI backend (/api/index, proxied by Vite);
  * falls back to the static snapshot at /index-data.json.
  */
+const BASE = import.meta.env.BASE_URL || "/";
+const DEV = import.meta.env.DEV;
+
+/** Whether a live backend is reachable (enables the Sync feature). The static
+ *  production build has no backend, so we don't probe (avoids a console 404). */
+export async function apiAvailable(): Promise<boolean> {
+  if (!DEV) return false;
+  try {
+    const r = await fetch("/api/health", { signal: AbortSignal.timeout(2500) });
+    return r.ok;
+  } catch {
+    return false;
+  }
+}
+
 export async function loadIndex(onProgress?: (p: LoadProgress) => void): Promise<IndexData> {
-  for (const url of ["/api/index", "/index-data.json"]) {
+  // Dev talks to the live backend first; the static build reads site-data.json.
+  const sources = DEV
+    ? ["/api/index", `${BASE}site-data.json`]
+    : [`${BASE}site-data.json`, "/api/index"];
+  for (const url of sources) {
     try {
       const res = await fetch(url, { headers: { accept: "application/json" } });
       if (!res.ok || !res.body) continue;

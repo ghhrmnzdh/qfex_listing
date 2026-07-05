@@ -16,7 +16,6 @@ frontend/dist/
 *.log
 
 # derived app data payload (contains historical series) — regenerable via pipeline
-frontend/public/index-data.json
 
 # QFEX raw cache (refdata + candles) — historical, regenerable
 backend/qfex_cache/

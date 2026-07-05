@@ -118,7 +118,42 @@ python3 -m uvicorn app:app --port 8000
 cd ../frontend && npm install && npm run dev
 ```
 
-### Regenerating the listing extraction
+The full app (with the live **Sync from QFEX** button) needs the backend. The frontend
+alone falls back to the committed static snapshot.
+
+## Static build & GitHub Pages
+
+The site can run with **no backend at all** — it reads a slim, results-only snapshot
+(`frontend/public/site-data.json`, ~350 KB: every return/alpha number plus down-sampled
+chart paths, no raw price history). On a backend-less host it hides the sync button and
+shows a `static snapshot` badge.
+
+**Publish it (one-time setup):**
+1. Push this repo to GitHub.
+2. Repo **Settings → Pages → Build and deployment → Source: GitHub Actions**.
+3. The included workflow (`.github/workflows/deploy.yml`) builds `frontend/` and deploys on
+   every push to `main` (or run it manually from the **Actions** tab). Your study goes live
+   at `https://<user>.github.io/<repo>/`.
+
+The build uses a **relative base**, so it works at any repo path without configuration.
+
+**Preview the static build locally:**
+```bash
+cd frontend && npm run build && npx vite preview   # serves dist/ with no backend
+```
+
+## Refreshing the data yourself
+
+The snapshot is regenerable — it is **not** raw data, so re-running is cheap and cached:
+```bash
+cd backend
+python3 pipeline.py            # fetch-once from QFEX (cached), recompute, rewrite site-data.json
+REFRESH=1 python3 pipeline.py  # force a fresh download of every market
+```
+`pipeline.py` writes both the full `data/index.json` (gitignored) and the committed
+`frontend/public/site-data.json`. Commit the updated snapshot and push — Pages redeploys.
+
+### Regenerating the listing→tweet extraction
 `backend/listings.json` is committed. To rebuild it from the tweets, re-run the workflow
 (`extract_workflow.js`) via the Claude Code Workflow tool, then `python3 pipeline.py`.
 
