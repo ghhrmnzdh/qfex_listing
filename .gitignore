@@ -1,0 +1,22 @@
+# historical market data (fetched, regenerable) — gitignored per request
+backend/data/
+backend/prices/
+backend/__pycache__/
+*.pyc
+.venv/
+venv/
+
+# node / frontend build
+node_modules/
+frontend/node_modules/
+frontend/dist/
+.DS_Store
+
+# scratch
+*.log
+
+# derived app data payload (contains historical series) — regenerable via pipeline
+frontend/public/index-data.json
+
+# QFEX raw cache (refdata + candles) — historical, regenerable
+backend/qfex_cache/

@@ -1,0 +1,93 @@
+/* ============================================================
+   The QFEX Listing Index — quant tearsheet design system
+   Canvas: near-black ink. Color is semantic only:
+     green/red = P&L, gold = "alpha" signal.
+   Type: Space Grotesk (display) · Inter (UI) · IBM Plex Mono (data)
+   ============================================================ */
+@import "@fontsource/space-grotesk/400.css";
+@import "@fontsource/space-grotesk/500.css";
+@import "@fontsource/space-grotesk/700.css";
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/500.css";
+@import "@fontsource/ibm-plex-mono/400.css";
+@import "@fontsource/ibm-plex-mono/500.css";
+@import "@fontsource/ibm-plex-mono/600.css";
+
+:root {
+  /* ink canvas */
+  --ink-900: #0a0b0d;
+  --ink-850: #0d0f12;
+  --ink-800: #101317;
+  --ink-750: #14181d;
+  --ink-700: #1a1f26;
+  --line: #1f242c;
+  --line-soft: #171b21;
+
+  /* text */
+  --text: #ecebe6;
+  --text-dim: #9aa1ab;
+  --text-faint: #5c636e;
+
+  /* semantic P&L */
+  --pos: #35d19a;
+  --pos-dim: #1f7a5c;
+  --neg: #f2676a;
+  --neg-dim: #99383c;
+
+  /* brand signal — alpha = gold */
+  --gold: #e7b24a;
+  --gold-soft: #6b5426;
+
+  --radius: 10px;
+  --maxw: 1180px;
+
+  --font-display: "Space Grotesk", system-ui, sans-serif;
+  --font-ui: "Inter", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+
+body {
+  background: var(--ink-900);
+  color: var(--text);
+  font-family: var(--font-ui);
+  font-size: 15px;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+/* subtle grain / vignette to keep the black from feeling flat */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(120% 80% at 50% -10%, rgba(231,178,74,0.05), transparent 55%),
+    radial-gradient(100% 60% at 100% 100%, rgba(53,209,154,0.03), transparent 60%);
+  z-index: 0;
+}
+
+a { color: inherit; text-decoration: none; }
+
+::selection { background: rgba(231,178,74,0.25); color: #fff; }
+
+.mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.tnum { font-variant-numeric: tabular-nums; }
+
+/* scrollbars */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--line); border-radius: 6px; }
+::-webkit-scrollbar-thumb:hover { background: #2a313b; }
+
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; border-radius: 4px; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+}

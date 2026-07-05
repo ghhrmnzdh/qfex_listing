@@ -1,0 +1,1472 @@
+{
+ "listings": [
+  {
+   "display_ticker": "TSLA",
+   "name": "Tesla Inc",
+   "asset_class": "equity_us",
+   "listing_date": "2026-01-07",
+   "announce_url": "https://x.com/QFEX/status/2008941568175009920",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2008941568175009920"
+   ],
+   "cnbc_symbol": "TSLA",
+   "cnbc_verified": true,
+   "last_close": 393.45,
+   "confidence": 0.99,
+   "notes": "'New assets listed on QFEX' equities list."
+  },
+  {
+   "display_ticker": "META",
+   "name": "Meta Platforms Inc",
+   "asset_class": "equity_us",
+   "listing_date": "2026-01-07",
+   "announce_url": "https://x.com/QFEX/status/2008941568175009920",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2008941568175009920"
+   ],
+   "cnbc_symbol": "META",
+   "cnbc_verified": true,
+   "last_close": 582.9,
+   "confidence": 0.99,
+   "notes": "'New assets listed on QFEX' equities list."
+  },
+  {
+   "display_ticker": "PLTR",
+   "name": "Palantir Technologies Inc",
+   "asset_class": "equity_us",
+   "listing_date": "2026-01-07",
+   "announce_url": "https://x.com/QFEX/status/2008941568175009920",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2008941568175009920"
+   ],
+   "cnbc_symbol": "PLTR",
+   "cnbc_verified": true,
+   "last_close": 129.3,
+   "confidence": 0.99,
+   "notes": "'New assets listed on QFEX' equities list."
+  },
+  {
+   "display_ticker": "RKLB",
+   "name": "Rocket Lab USA Inc",
+   "asset_class": "equity_us",
+   "listing_date": "2026-01-07",
+   "announce_url": "https://x.com/QFEX/status/2008941568175009920",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2008941568175009920"
+   ],
+   "cnbc_symbol": "RKLB",
+   "cnbc_verified": true,
+   "last_close": 100.46,
+   "confidence": 0.98,
+   "notes": "'New assets listed on QFEX' equities list."
+  },
+  {
+   "display_ticker": "CRWV",
+   "name": "CoreWeave Inc",
+   "asset_class": "equity_us",
+   "listing_date": "2026-01-07",
+   "announce_url": "https://x.com/QFEX/status/2008941568175009920",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2008941568175009920",
+    "https://x.com/QFEX/status/2067236821751202017",
+    "https://x.com/QFEX/status/2067590828847923279"
+   ],
+   "cnbc_symbol": "CRWV",
+   "cnbc_verified": true,
+   "last_close": 81.745,
+   "confidence": 0.97,
+   "notes": "First listed in 01-07 equities batch; later re-appears in Leopold (06-17) and Neocloud (06-18) baskets as existing. Recent IPO, 67 bars."
+  },
+  {
+   "display_ticker": "Silver",
+   "name": "Silver Front-Month Futures",
+   "asset_class": "commodity",
+   "listing_date": "2026-01-07",
+   "announce_url": "https://x.com/QFEX/status/2008941568175009920",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2008941568175009920"
+   ],
+   "cnbc_symbol": "@SI.1",
+   "cnbc_verified": true,
+   "last_close": 61.064,
+   "confidence": 0.97,
+   "notes": "Listed under Commodities; mapped to silver front-month futures @SI.1."
+  },
+  {
+   "display_ticker": "Uranium",
+   "name": "Uranium (URA ETF proxy)",
+   "asset_class": "commodity",
+   "listing_date": "2026-01-07",
+   "announce_url": "https://x.com/QFEX/status/2008941568175009920",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2008941568175009920"
+   ],
+   "cnbc_symbol": "URA",
+   "cnbc_verified": true,
+   "last_close": 43.23,
+   "confidence": 0.85,
+   "notes": "No direct uranium futures on CNBC; URA (Global X Uranium ETF) used as verified proxy."
+  },
+  {
+   "display_ticker": "EUR/USD",
+   "name": "Euro / US Dollar",
+   "asset_class": "forex",
+   "listing_date": "2026-01-07",
+   "announce_url": "https://x.com/QFEX/status/2008941568175009920",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2008941568175009920"
+   ],
+   "cnbc_symbol": "EUR=",
+   "cnbc_verified": true,
+   "last_close": 1.1435,
+   "confidence": 0.98,
+   "notes": "Listed under Forex; EUR= verified (EURUSD= failed)."
+  },
+  {
+   "display_ticker": "Crude Oil",
+   "name": "Crude Oil Front-Month Futures",
+   "asset_class": "commodity",
+   "listing_date": "2026-03-12",
+   "announce_url": "https://x.com/QFEX/status/2032174294214590621",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2032174294214590621",
+    "https://x.com/QFEX/status/2032174296630431783"
+   ],
+   "cnbc_symbol": "@CL.1",
+   "cnbc_verified": true,
+   "last_close": 68.69,
+   "confidence": 0.98,
+   "notes": "'Crude Oil $CL is now live.' Follow-up /trade/CL-USD Hormuz tweet is a marketing dup."
+  },
+  {
+   "display_ticker": "NATGAS",
+   "name": "Natural Gas Front-Month Futures",
+   "asset_class": "commodity",
+   "listing_date": "2026-03-16",
+   "announce_url": "https://x.com/QFEX/status/2033628202455740607",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2033628202455740607",
+    "https://x.com/QFEX/status/2033628206318674298"
+   ],
+   "cnbc_symbol": "@NG.1",
+   "cnbc_verified": true,
+   "last_close": 3.196,
+   "confidence": 0.98,
+   "notes": "'NATGAS, a new listing is now live.' Follow-up /trade/NATGAS-USD tweet is a marketing dup."
+  },
+  {
+   "display_ticker": "US500",
+   "name": "S&P 500 Index",
+   "asset_class": "index",
+   "listing_date": "2026-03-19",
+   "announce_url": "https://x.com/QFEX/status/2034595187570221531",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2034595187570221531",
+    "https://x.com/QFEX/status/2034595190476792271"
+   ],
+   "cnbc_symbol": ".SPX",
+   "cnbc_verified": true,
+   "last_close": 7483.24,
+   "confidence": 0.95,
+   "notes": "'US500 is now live at QFEX.' Mapped to S&P 500 .SPX. Second same-day /trade/US500-USD tweet folded in."
+  },
+  {
+   "display_ticker": "$SNDK",
+   "name": "SanDisk Corp",
+   "asset_class": "equity_us",
+   "listing_date": "2026-03-24",
+   "announce_url": "https://x.com/QFEX/status/2036440456398016557",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2036440456398016557",
+    "https://x.com/QFEX/status/2066904636057891006",
+    "https://x.com/QFEX/status/2067236821751202017"
+   ],
+   "cnbc_symbol": "SNDK",
+   "cnbc_verified": true,
+   "last_close": 1745,
+   "confidence": 0.97,
+   "notes": "'New listings'. WDC spin-off, 74 bars. Later re-appears in Kawz (06-16) and Leopold (06-17) baskets. Last close 1745 high but CNBC-confirmed."
+  },
+  {
+   "display_ticker": "$INTC",
+   "name": "Intel Corp",
+   "asset_class": "equity_us",
+   "listing_date": "2026-03-24",
+   "announce_url": "https://x.com/QFEX/status/2036440456398016557",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2036440456398016557"
+   ],
+   "cnbc_symbol": "INTC",
+   "cnbc_verified": true,
+   "last_close": 120.35,
+   "confidence": 0.99,
+   "notes": "'New listings'. Verified 522 bars."
+  },
+  {
+   "display_ticker": "$HOOD",
+   "name": "Robinhood Markets Inc",
+   "asset_class": "equity_us",
+   "listing_date": "2026-03-24",
+   "announce_url": "https://x.com/QFEX/status/2036440456398016557",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2036440456398016557"
+   ],
+   "cnbc_symbol": "HOOD",
+   "cnbc_verified": true,
+   "last_close": 112.73,
+   "confidence": 0.99,
+   "notes": "'New listings'. Verified 259 bars."
+  },
+  {
+   "display_ticker": "$CRCL",
+   "name": "Circle Internet Group",
+   "asset_class": "equity_us",
+   "listing_date": "2026-03-24",
+   "announce_url": "https://x.com/QFEX/status/2036440456398016557",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2036440456398016557"
+   ],
+   "cnbc_symbol": "CRCL",
+   "cnbc_verified": true,
+   "last_close": 64.62,
+   "confidence": 0.97,
+   "notes": "'New listings'. Circle (2025 IPO), 57 bars."
+  },
+  {
+   "display_ticker": "$BA",
+   "name": "Boeing Co",
+   "asset_class": "equity_us",
+   "listing_date": "2026-03-27",
+   "announce_url": "https://x.com/QFEX/status/2037575070717993359",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2037575070717993359"
+   ],
+   "cnbc_symbol": "BA",
+   "cnbc_verified": true,
+   "last_close": 226.49,
+   "confidence": 0.99,
+   "notes": "'Defense is live'. Verified 522 bars."
+  },
+  {
+   "display_ticker": "$NOC",
+   "name": "Northrop Grumman Corp",
+   "asset_class": "equity_us",
+   "listing_date": "2026-03-27",
+   "announce_url": "https://x.com/QFEX/status/2037575070717993359",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2037575070717993359"
+   ],
+   "cnbc_symbol": "NOC",
+   "cnbc_verified": true,
+   "last_close": 549.01,
+   "confidence": 0.99,
+   "notes": "'Defense is live'. Verified 522 bars."
+  },
+  {
+   "display_ticker": "$RTX",
+   "name": "RTX Corp (Raytheon)",
+   "asset_class": "equity_us",
+   "listing_date": "2026-03-27",
+   "announce_url": "https://x.com/QFEX/status/2037575070717993359",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2037575070717993359"
+   ],
+   "cnbc_symbol": "RTX",
+   "cnbc_verified": true,
+   "last_close": 199.25,
+   "confidence": 0.99,
+   "notes": "'Defense is live'. Verified 522 bars."
+  },
+  {
+   "display_ticker": "$LMT",
+   "name": "Lockheed Martin Corp",
+   "asset_class": "equity_us",
+   "listing_date": "2026-03-27",
+   "announce_url": "https://x.com/QFEX/status/2037575070717993359",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2037575070717993359"
+   ],
+   "cnbc_symbol": "LMT",
+   "cnbc_verified": true,
+   "last_close": 545.91,
+   "confidence": 0.99,
+   "notes": "'Defense is live'. Verified 522 bars."
+  },
+  {
+   "display_ticker": "$GD",
+   "name": "General Dynamics Corp",
+   "asset_class": "equity_us",
+   "listing_date": "2026-03-27",
+   "announce_url": "https://x.com/QFEX/status/2037575070717993359",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2037575070717993359"
+   ],
+   "cnbc_symbol": "GD",
+   "cnbc_verified": true,
+   "last_close": 373.54,
+   "confidence": 0.99,
+   "notes": "'Defense is live'. Verified 522 bars."
+  },
+  {
+   "display_ticker": "005930",
+   "name": "Samsung Electronics",
+   "asset_class": "equity_kr",
+   "listing_date": "2026-04-02",
+   "announce_url": "https://x.com/QFEX/status/2039658964393025944",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2039658964393025944"
+   ],
+   "cnbc_symbol": "005930-KR",
+   "cnbc_verified": true,
+   "last_close": 309500,
+   "confidence": 0.99,
+   "notes": "'Top Korean equities are now live'. Samsung 005930 -> 005930-KR, 521 bars (KRW)."
+  },
+  {
+   "display_ticker": "005380",
+   "name": "Hyundai Motor",
+   "asset_class": "equity_kr",
+   "listing_date": "2026-04-02",
+   "announce_url": "https://x.com/QFEX/status/2039658964393025944",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2039658964393025944"
+   ],
+   "cnbc_symbol": "005380-KR",
+   "cnbc_verified": true,
+   "last_close": 492000,
+   "confidence": 0.99,
+   "notes": "Hyundai 005380 -> 005380-KR, 521 bars (KRW)."
+  },
+  {
+   "display_ticker": "000270",
+   "name": "Kia Corp",
+   "asset_class": "equity_kr",
+   "listing_date": "2026-04-02",
+   "announce_url": "https://x.com/QFEX/status/2039658964393025944",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2039658964393025944"
+   ],
+   "cnbc_symbol": "000270-KR",
+   "cnbc_verified": true,
+   "last_close": 152000,
+   "confidence": 0.99,
+   "notes": "KIA 000270 -> 000270-KR, 521 bars (KRW)."
+  },
+  {
+   "display_ticker": "000660",
+   "name": "SK Hynix",
+   "asset_class": "equity_kr",
+   "listing_date": "2026-04-02",
+   "announce_url": "https://x.com/QFEX/status/2039658964393025944",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2039658964393025944",
+    "https://x.com/QFEX/status/2066904636057891006"
+   ],
+   "cnbc_symbol": "000660-KR",
+   "cnbc_verified": true,
+   "last_close": 2425000,
+   "confidence": 0.99,
+   "notes": "SK Hynix 000660 -> 000660-KR, 521 bars (KRW). Re-appears as 'SKHYNIX' in Kawz basket (06-16)."
+  },
+  {
+   "display_ticker": "$XOM",
+   "name": "ExxonMobil Corp",
+   "asset_class": "equity_us",
+   "listing_date": "2026-04-09",
+   "announce_url": "https://x.com/QFEX/status/2042235531371663488",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2042235531371663488"
+   ],
+   "cnbc_symbol": "XOM",
+   "cnbc_verified": true,
+   "last_close": 137.09,
+   "confidence": 0.99,
+   "notes": "'New NYSE equities are now live'. Verified 522 bars."
+  },
+  {
+   "display_ticker": "$JPM",
+   "name": "JPMorgan Chase & Co",
+   "asset_class": "equity_us",
+   "listing_date": "2026-04-09",
+   "announce_url": "https://x.com/QFEX/status/2042235531371663488",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2042235531371663488"
+   ],
+   "cnbc_symbol": "JPM",
+   "cnbc_verified": true,
+   "last_close": 334.47,
+   "confidence": 0.99,
+   "notes": "'New NYSE equities are now live'. Verified 522 bars."
+  },
+  {
+   "display_ticker": "$HIMS",
+   "name": "Hims & Hers Health",
+   "asset_class": "equity_us",
+   "listing_date": "2026-04-09",
+   "announce_url": "https://x.com/QFEX/status/2042235531371663488",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2042235531371663488"
+   ],
+   "cnbc_symbol": "HIMS",
+   "cnbc_verified": true,
+   "last_close": 36.8,
+   "confidence": 0.99,
+   "notes": "'New NYSE equities are now live'. Verified 355 bars."
+  },
+  {
+   "display_ticker": "$LLY",
+   "name": "Eli Lilly & Co",
+   "asset_class": "equity_us",
+   "listing_date": "2026-04-09",
+   "announce_url": "https://x.com/QFEX/status/2042235531371663488",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2042235531371663488"
+   ],
+   "cnbc_symbol": "LLY",
+   "cnbc_verified": true,
+   "last_close": 1213.91,
+   "confidence": 0.99,
+   "notes": "'New NYSE equities are now live'. Verified 522 bars."
+  },
+  {
+   "display_ticker": "$WMT",
+   "name": "Walmart Inc",
+   "asset_class": "equity_us",
+   "listing_date": "2026-04-09",
+   "announce_url": "https://x.com/QFEX/status/2042290192191545614",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2042290192191545614"
+   ],
+   "cnbc_symbol": "WMT",
+   "cnbc_verified": true,
+   "last_close": 111.84,
+   "confidence": 0.97,
+   "notes": "COVERAGE ADD: missing from raw. 'New Nasdaq equities are now live' tweet. CNBC WMT verified 522 bars, last 111.84."
+  },
+  {
+   "display_ticker": "$AMD",
+   "name": "Advanced Micro Devices Inc",
+   "asset_class": "equity_us",
+   "listing_date": "2026-04-09",
+   "announce_url": "https://x.com/QFEX/status/2042290192191545614",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2042290192191545614"
+   ],
+   "cnbc_symbol": "AMD",
+   "cnbc_verified": true,
+   "last_close": 517.82,
+   "confidence": 0.97,
+   "notes": "COVERAGE ADD: missing from raw. 'New Nasdaq equities are now live' tweet. CNBC AMD verified 522 bars, last 517.82."
+  },
+  {
+   "display_ticker": "$MU",
+   "name": "Micron Technology Inc",
+   "asset_class": "equity_us",
+   "listing_date": "2026-04-09",
+   "announce_url": "https://x.com/QFEX/status/2042290192191545614",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2042290192191545614",
+    "https://x.com/QFEX/status/2066904636057891006",
+    "https://x.com/QFEX/status/2067236821751202017"
+   ],
+   "cnbc_symbol": "MU",
+   "cnbc_verified": true,
+   "last_close": 975.56,
+   "confidence": 0.97,
+   "notes": "DATE CORRECTED: raw only had it in Kawz (06-16)/Leopold (06-17) baskets, but MU was a new Nasdaq listing on 04-09. Earliest date used. Verified 522 bars."
+  },
+  {
+   "display_ticker": "$AVGO",
+   "name": "Broadcom Inc",
+   "asset_class": "equity_us",
+   "listing_date": "2026-04-09",
+   "announce_url": "https://x.com/QFEX/status/2042290192191545614",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2042290192191545614"
+   ],
+   "cnbc_symbol": "AVGO",
+   "cnbc_verified": true,
+   "last_close": 360.45,
+   "confidence": 0.97,
+   "notes": "COVERAGE ADD: missing from raw. 'New Nasdaq equities are now live' tweet. CNBC AVGO verified 522 bars, last 360.45."
+  },
+  {
+   "display_ticker": "BABA",
+   "name": "Alibaba Group",
+   "asset_class": "equity_intl",
+   "listing_date": "2026-04-14",
+   "announce_url": "https://x.com/QFEX/status/2044083086971777089",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2044083086971777089"
+   ],
+   "cnbc_symbol": "BABA",
+   "cnbc_verified": true,
+   "last_close": 96.14,
+   "confidence": 0.95,
+   "notes": "Expanding-lineup tweet. Chinese ADR. Verified 522 bars."
+  },
+  {
+   "display_ticker": "TAIEX",
+   "name": "Taiwan Weighted Index (TAIEX)",
+   "asset_class": "index",
+   "listing_date": "2026-04-14",
+   "announce_url": "https://x.com/QFEX/status/2044083086971777089",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2044083086971777089"
+   ],
+   "cnbc_symbol": ".TWII",
+   "cnbc_verified": true,
+   "last_close": 46780.62,
+   "confidence": 0.95,
+   "notes": "Taiwan index. Verified 516 bars via .TWII."
+  },
+  {
+   "display_ticker": "HSI",
+   "name": "Hang Seng Index",
+   "asset_class": "index",
+   "listing_date": "2026-04-14",
+   "announce_url": "https://x.com/QFEX/status/2044083086971777089",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2044083086971777089"
+   ],
+   "cnbc_symbol": ".HSI",
+   "cnbc_verified": true,
+   "last_close": 23350.03,
+   "confidence": 0.95,
+   "notes": "Hang Seng index. Verified 522 bars."
+  },
+  {
+   "display_ticker": "NIKKEI",
+   "name": "Nikkei 225 Index",
+   "asset_class": "index",
+   "listing_date": "2026-04-14",
+   "announce_url": "https://x.com/QFEX/status/2044083086971777089",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2044083086971777089"
+   ],
+   "cnbc_symbol": ".N225",
+   "cnbc_verified": true,
+   "last_close": 69744.07,
+   "confidence": 0.95,
+   "notes": "Nikkei 225. Verified 521 bars. TSMC mentioned only as commentary."
+  },
+  {
+   "display_ticker": "BIRD",
+   "name": "Allbirds Inc",
+   "asset_class": "equity_us",
+   "listing_date": "2026-04-15",
+   "announce_url": "https://x.com/QFEX/status/2044453902372729126",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2044453902372729126"
+   ],
+   "cnbc_symbol": "BIRD",
+   "cnbc_verified": true,
+   "last_close": 3.85,
+   "confidence": 0.97,
+   "notes": "'Allbirds $BIRD is now live'. Verified 244 bars."
+  },
+  {
+   "display_ticker": "AMZN",
+   "name": "Amazon.com Inc",
+   "asset_class": "equity_us",
+   "listing_date": "2026-04-15",
+   "announce_url": "https://x.com/QFEX/status/2044458671573180651",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2044458671573180651",
+    "https://x.com/QFEX/status/2044458673783615990"
+   ],
+   "cnbc_symbol": "AMZN",
+   "cnbc_verified": true,
+   "last_close": 242.67,
+   "confidence": 0.98,
+   "notes": "'Amazon $AMZN is now live'. Verified 522 bars. Follow-up meme tweet folded in; BABA meme tweet is noise."
+  },
+  {
+   "display_ticker": "LITE",
+   "name": "Lumentum Holdings Inc",
+   "asset_class": "equity_us",
+   "listing_date": "2026-04-22",
+   "announce_url": "https://x.com/annanay/status/2046937640839037200",
+   "all_tweet_urls": [
+    "https://x.com/annanay/status/2046937640839037200",
+    "https://x.com/QFEX/status/2066904636057891006"
+   ],
+   "cnbc_symbol": "LITE",
+   "cnbc_verified": true,
+   "last_close": 728.32,
+   "confidence": 0.9,
+   "notes": "Photonics essay explicitly lists on QFEX. Verified 522 bars. Re-appears in Kawz basket (06-16)."
+  },
+  {
+   "display_ticker": "COHR",
+   "name": "Coherent Corp",
+   "asset_class": "equity_us",
+   "listing_date": "2026-04-22",
+   "announce_url": "https://x.com/annanay/status/2046937640839037200",
+   "all_tweet_urls": [
+    "https://x.com/annanay/status/2046937640839037200"
+   ],
+   "cnbc_symbol": "COHR",
+   "cnbc_verified": true,
+   "last_close": 333.36,
+   "confidence": 0.9,
+   "notes": "Photonics essay listing. Verified 522 bars."
+  },
+  {
+   "display_ticker": "GLW",
+   "name": "Corning Inc",
+   "asset_class": "equity_us",
+   "listing_date": "2026-04-22",
+   "announce_url": "https://x.com/annanay/status/2046937640839037200",
+   "all_tweet_urls": [
+    "https://x.com/annanay/status/2046937640839037200"
+   ],
+   "cnbc_symbol": "GLW",
+   "cnbc_verified": true,
+   "last_close": 196.79,
+   "confidence": 0.85,
+   "notes": "Photonics essay listing ($GLW Corning). Verified 522 bars."
+  },
+  {
+   "display_ticker": "CIEN",
+   "name": "Ciena Corp",
+   "asset_class": "equity_us",
+   "listing_date": "2026-04-22",
+   "announce_url": "https://x.com/annanay/status/2046937640839037200",
+   "all_tweet_urls": [
+    "https://x.com/annanay/status/2046937640839037200",
+    "https://x.com/QFEX/status/2066904636057891006"
+   ],
+   "cnbc_symbol": "CIEN",
+   "cnbc_verified": true,
+   "last_close": 422.46,
+   "confidence": 0.9,
+   "notes": "DATE CORRECTED: raw dated it 06-16, but it is explicitly listed in the 04-22 photonics essay ('$CIEN Ciena Corp.'). Verified 522 bars."
+  },
+  {
+   "display_ticker": "AAOI",
+   "name": "Applied Optoelectronics Inc",
+   "asset_class": "equity_us",
+   "listing_date": "2026-04-22",
+   "announce_url": "https://x.com/annanay/status/2046937640839037200",
+   "all_tweet_urls": [
+    "https://x.com/annanay/status/2046937640839037200",
+    "https://x.com/QFEX/status/2062139228541042868",
+    "https://x.com/QFEX/status/2066904636057891006"
+   ],
+   "cnbc_symbol": "AAOI",
+   "cnbc_verified": true,
+   "last_close": 120.95,
+   "confidence": 0.9,
+   "notes": "DATE CORRECTED: raw earliest was 06-03, but explicitly listed in 04-22 photonics essay. Verified 522 bars."
+  },
+  {
+   "display_ticker": "AXTI",
+   "name": "AXT Inc",
+   "asset_class": "equity_us",
+   "listing_date": "2026-04-22",
+   "announce_url": "https://x.com/annanay/status/2046937640839037200",
+   "all_tweet_urls": [
+    "https://x.com/annanay/status/2046937640839037200",
+    "https://x.com/QFEX/status/2062139228541042868",
+    "https://x.com/QFEX/status/2066904636057891006"
+   ],
+   "cnbc_symbol": "AXTI",
+   "cnbc_verified": true,
+   "last_close": 56.62,
+   "confidence": 0.9,
+   "notes": "DATE CORRECTED: raw earliest was 06-03, but explicitly listed in 04-22 photonics essay ('$AXTI AXT Inc.'). Verified 522 bars."
+  },
+  {
+   "display_ticker": "BE",
+   "name": "Bloom Energy Corp",
+   "asset_class": "equity_us",
+   "listing_date": "2026-05-19",
+   "announce_url": "https://x.com/QFEX/status/2056757871354798197",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2056757871354798197",
+    "https://x.com/QFEX/status/2067236821751202017"
+   ],
+   "cnbc_symbol": "BE",
+   "cnbc_verified": true,
+   "last_close": 270.89,
+   "confidence": 0.96,
+   "notes": "AI/Space/Energy batch. 415 bars. Re-appears in Leopold basket (06-17)."
+  },
+  {
+   "display_ticker": "CBRS",
+   "name": "Cerebras Systems Inc",
+   "asset_class": "equity_us",
+   "listing_date": "2026-05-19",
+   "announce_url": "https://x.com/QFEX/status/2056757871354798197",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2056757871354798197"
+   ],
+   "cnbc_symbol": "CBRS",
+   "cnbc_verified": true,
+   "last_close": 204.86,
+   "confidence": 0.93,
+   "notes": "AI chip, Nasdaq IPO 2026-05-14. Only 8 bars (very recent IPO) but real data, last 204.86."
+  },
+  {
+   "display_ticker": "RDW",
+   "name": "Redwire Corp",
+   "asset_class": "equity_us",
+   "listing_date": "2026-05-19",
+   "announce_url": "https://x.com/QFEX/status/2056757871354798197",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2056757871354798197"
+   ],
+   "cnbc_symbol": "RDW",
+   "cnbc_verified": true,
+   "last_close": 11.31,
+   "confidence": 0.95,
+   "notes": "Space listing. 286 bars."
+  },
+  {
+   "display_ticker": "ASTS",
+   "name": "AST SpaceMobile Inc",
+   "asset_class": "equity_us",
+   "listing_date": "2026-05-19",
+   "announce_url": "https://x.com/QFEX/status/2056757871354798197",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2056757871354798197",
+    "https://x.com/QFEX/status/2066904636057891006"
+   ],
+   "cnbc_symbol": "ASTS",
+   "cnbc_verified": true,
+   "last_close": 85.13,
+   "confidence": 0.96,
+   "notes": "Space listing. 347 bars. Re-appears in Kawz basket (06-16)."
+  },
+  {
+   "display_ticker": "NVTS",
+   "name": "Navitas Semiconductor Corp",
+   "asset_class": "equity_us",
+   "listing_date": "2026-05-19",
+   "announce_url": "https://x.com/QFEX/status/2056757871354798197",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2056757871354798197"
+   ],
+   "cnbc_symbol": "NVTS",
+   "cnbc_verified": true,
+   "last_close": 14.46,
+   "confidence": 0.95,
+   "notes": "Energy/semi listing. 284 bars."
+  },
+  {
+   "display_ticker": "BB",
+   "name": "BlackBerry Ltd",
+   "asset_class": "equity_us",
+   "listing_date": "2026-05-26",
+   "announce_url": "https://x.com/QFEX/status/2059292354490544412",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2059292354490544412",
+    "https://x.com/QFEX/status/2066904636057891006"
+   ],
+   "cnbc_symbol": "BB",
+   "cnbc_verified": true,
+   "last_close": 11.51,
+   "confidence": 0.96,
+   "notes": "Cybersecurity/Robotics batch. 522 bars. Re-appears in Kawz basket (06-16)."
+  },
+  {
+   "display_ticker": "BOT",
+   "name": "RoboStrategy Inc",
+   "asset_class": "etf",
+   "listing_date": "2026-05-26",
+   "announce_url": "https://x.com/QFEX/status/2059292354490544412",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2059292354490544412",
+    "https://x.com/QFEX/status/2064768202148557018"
+   ],
+   "cnbc_symbol": "BOT",
+   "cnbc_verified": true,
+   "last_close": 35.63,
+   "confidence": 0.9,
+   "notes": "RoboStrategy closed-end robotics/AI fund, Nasdaq listed 2026-05-11. 8 bars (recent) but real data. Re-confirmed via /trade/BOT-USD link (06-10)."
+  },
+  {
+   "display_ticker": "CRWD",
+   "name": "CrowdStrike Holdings Inc",
+   "asset_class": "equity_us",
+   "listing_date": "2026-05-26",
+   "announce_url": "https://x.com/QFEX/status/2059292354490544412",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2059292354490544412"
+   ],
+   "cnbc_symbol": "CRWD",
+   "cnbc_verified": true,
+   "last_close": 193.98,
+   "confidence": 0.96,
+   "notes": "Cybersecurity listing. 370 bars."
+  },
+  {
+   "display_ticker": "PANW",
+   "name": "Palo Alto Networks Inc",
+   "asset_class": "equity_us",
+   "listing_date": "2026-05-26",
+   "announce_url": "https://x.com/QFEX/status/2059292354490544412",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2059292354490544412"
+   ],
+   "cnbc_symbol": "PANW",
+   "cnbc_verified": true,
+   "last_close": 348.06,
+   "confidence": 0.96,
+   "notes": "Cybersecurity listing. 522 bars."
+  },
+  {
+   "display_ticker": "SIVE",
+   "name": "Sivers Semiconductors AB",
+   "asset_class": "equity_intl",
+   "listing_date": "2026-05-28",
+   "announce_url": "https://x.com/QFEX/status/2059990218531332537",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2059990218531332537",
+    "https://x.com/QFEX/status/2062139228541042868",
+    "https://x.com/QFEX/status/2066904636057891006"
+   ],
+   "cnbc_symbol": "SIVE",
+   "cnbc_verified": true,
+   "last_close": 56.3,
+   "confidence": 0.9,
+   "notes": "Global-equities expansion. QFEX labeled it SIVE-KRW but it is Sivers Semiconductors (Swedish, Nasdaq Stockholm OMXSTO:SIVE). CNBC 'SIVE' 522 bars, last 56.30 SEK. Re-appears 06-03 and 06-16."
+  },
+  {
+   "display_ticker": "AEHR",
+   "name": "Aehr Test Systems",
+   "asset_class": "equity_us",
+   "listing_date": "2026-06-03",
+   "announce_url": "https://x.com/QFEX/status/2062139228541042868",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2062139228541042868",
+    "https://x.com/QFEX/status/2066904636057891006"
+   ],
+   "cnbc_symbol": "AEHR",
+   "cnbc_verified": true,
+   "last_close": 69.96,
+   "confidence": 0.95,
+   "notes": "'For the first time ever, trade the semiconductor $AEHR' - new. 522 bars. Re-appears in Kawz basket (06-16)."
+  },
+  {
+   "display_ticker": "NBIS",
+   "name": "Nebius Group N.V.",
+   "asset_class": "equity_us",
+   "listing_date": "2026-06-03",
+   "announce_url": "https://x.com/QFEX/status/2062139228541042868",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2062139228541042868",
+    "https://x.com/QFEX/status/2067590828847923279"
+   ],
+   "cnbc_symbol": "NBIS",
+   "cnbc_verified": true,
+   "last_close": 215.62,
+   "confidence": 0.92,
+   "notes": "Listed 'alongside the rest' of Serenity basket (06-03, earliest). Nasdaq-listed. 384 bars. Re-appears in Neocloud basket (06-18)."
+  },
+  {
+   "display_ticker": "RCAT",
+   "name": "Red Cat Holdings Inc",
+   "asset_class": "equity_us",
+   "listing_date": "2026-06-05",
+   "announce_url": "https://x.com/QFEX/status/2062882796004409653",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2062882796004409653"
+   ],
+   "cnbc_symbol": "RCAT",
+   "cnbc_verified": true,
+   "last_close": 10.44,
+   "confidence": 0.95,
+   "notes": "'Our second robotics listing $RCAT is now live'. 512 bars."
+  },
+  {
+   "display_ticker": "$ORCL",
+   "name": "Oracle Corp",
+   "asset_class": "equity_us",
+   "listing_date": "2026-06-09",
+   "announce_url": "https://x.com/QFEX/status/2064375944014451074",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2064375944014451074",
+    "https://x.com/QFEX/status/2064664069274026208"
+   ],
+   "cnbc_symbol": "ORCL",
+   "cnbc_verified": true,
+   "last_close": 140.27,
+   "confidence": 0.98,
+   "notes": "'New 24/7, 10x leveraged listings now live'. 522 bars. 06-10 earnings tweet is a marketing dup."
+  },
+  {
+   "display_ticker": "$WOLF",
+   "name": "Wolfspeed Inc",
+   "asset_class": "equity_us",
+   "listing_date": "2026-06-09",
+   "announce_url": "https://x.com/QFEX/status/2064375944014451074",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2064375944014451074"
+   ],
+   "cnbc_symbol": "WOLF",
+   "cnbc_verified": true,
+   "last_close": 40,
+   "confidence": 0.98,
+   "notes": "Now-live listing. 522 bars."
+  },
+  {
+   "display_ticker": "$JBL",
+   "name": "Jabil Inc",
+   "asset_class": "equity_us",
+   "listing_date": "2026-06-09",
+   "announce_url": "https://x.com/QFEX/status/2064375944014451074",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2064375944014451074"
+   ],
+   "cnbc_symbol": "JBL",
+   "cnbc_verified": true,
+   "last_close": 341.3,
+   "confidence": 0.98,
+   "notes": "Now-live listing. 522 bars."
+  },
+  {
+   "display_ticker": "$IOVA",
+   "name": "Iovance Biotherapeutics Inc",
+   "asset_class": "equity_us",
+   "listing_date": "2026-06-09",
+   "announce_url": "https://x.com/QFEX/status/2064375944014451074",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2064375944014451074"
+   ],
+   "cnbc_symbol": "IOVA",
+   "cnbc_verified": true,
+   "last_close": 4.31,
+   "confidence": 0.98,
+   "notes": "Now-live listing. 522 bars."
+  },
+  {
+   "display_ticker": "$ABSI",
+   "name": "Absci Corp",
+   "asset_class": "equity_us",
+   "listing_date": "2026-06-10",
+   "announce_url": "https://x.com/QFEX/status/2064734260800475203",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2064734260800475203"
+   ],
+   "cnbc_symbol": "ABSI",
+   "cnbc_verified": true,
+   "last_close": 11.62,
+   "confidence": 0.97,
+   "notes": "'New biotech listings now live'. 259 bars."
+  },
+  {
+   "display_ticker": "$ABCL",
+   "name": "AbCellera Biologics Inc",
+   "asset_class": "equity_us",
+   "listing_date": "2026-06-10",
+   "announce_url": "https://x.com/QFEX/status/2064734260800475203",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2064734260800475203"
+   ],
+   "cnbc_symbol": "ABCL",
+   "cnbc_verified": true,
+   "last_close": 8.11,
+   "confidence": 0.97,
+   "notes": "New biotech listing. 291 bars."
+  },
+  {
+   "display_ticker": "$QURE",
+   "name": "uniQure N.V.",
+   "asset_class": "equity_us",
+   "listing_date": "2026-06-10",
+   "announce_url": "https://x.com/QFEX/status/2064734260800475203",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2064734260800475203"
+   ],
+   "cnbc_symbol": "QURE",
+   "cnbc_verified": true,
+   "last_close": 41.81,
+   "confidence": 0.97,
+   "notes": "New biotech listing. 522 bars."
+  },
+  {
+   "display_ticker": "$DRAM",
+   "name": "Roundhill Memory ETF",
+   "asset_class": "etf",
+   "listing_date": "2026-06-11",
+   "announce_url": "https://x.com/QFEX/status/2065044943983239243",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2065044943983239243"
+   ],
+   "cnbc_symbol": "DRAM",
+   "cnbc_verified": true,
+   "last_close": 60.63,
+   "confidence": 0.92,
+   "notes": "'New listings now live'. Roundhill Memory ETF; 14 bars (recently launched), sane close."
+  },
+  {
+   "display_ticker": "$IGV",
+   "name": "iShares Expanded Tech-Software Sector ETF",
+   "asset_class": "etf",
+   "listing_date": "2026-06-11",
+   "announce_url": "https://x.com/QFEX/status/2065044943983239243",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2065044943983239243"
+   ],
+   "cnbc_symbol": "IGV",
+   "cnbc_verified": true,
+   "last_close": 93.57,
+   "confidence": 0.97,
+   "notes": "New now-live listing. 522 bars."
+  },
+  {
+   "display_ticker": "$NBR",
+   "name": "Nabors Industries Ltd",
+   "asset_class": "equity_us",
+   "listing_date": "2026-06-11",
+   "announce_url": "https://x.com/QFEX/status/2065044943983239243",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2065044943983239243"
+   ],
+   "cnbc_symbol": "NBR",
+   "cnbc_verified": true,
+   "last_close": 77.86,
+   "confidence": 0.97,
+   "notes": "New now-live listing. 522 bars."
+  },
+  {
+   "display_ticker": "LPTH",
+   "name": "LightPath Technologies Inc",
+   "asset_class": "equity_us",
+   "listing_date": "2026-06-15",
+   "announce_url": "https://x.com/QFEX/status/2066486000570834996",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2066486000570834996"
+   ],
+   "cnbc_symbol": "LPTH",
+   "cnbc_verified": true,
+   "last_close": 14.56,
+   "confidence": 0.97,
+   "notes": "Multi-asset 'New listings now live'. Verified 522 bars."
+  },
+  {
+   "display_ticker": "MRVL",
+   "name": "Marvell Technology Inc",
+   "asset_class": "equity_us",
+   "listing_date": "2026-06-15",
+   "announce_url": "https://x.com/QFEX/status/2066486000570834996",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2066486000570834996",
+    "https://x.com/QFEX/status/2066904636057891006"
+   ],
+   "cnbc_symbol": "MRVL",
+   "cnbc_verified": true,
+   "last_close": 245.29,
+   "confidence": 0.97,
+   "notes": "Multi-asset new listings tweet (06-15, earliest). Verified 522 bars. Also in Kawz basket (06-16)."
+  },
+  {
+   "display_ticker": "SOXL",
+   "name": "Direxion Daily Semiconductor Bull 3X ETF",
+   "asset_class": "etf",
+   "listing_date": "2026-06-15",
+   "announce_url": "https://x.com/QFEX/status/2066486000570834996",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2066486000570834996",
+    "https://x.com/QFEX/status/2066487364801716708"
+   ],
+   "cnbc_symbol": "SOXL",
+   "cnbc_verified": true,
+   "last_close": 181.47,
+   "confidence": 0.97,
+   "notes": "Leveraged 3x semiconductor ETF. Verified 522 bars. Standalone follow-up tweet is duplicate marketing."
+  },
+  {
+   "display_ticker": "FLEX",
+   "name": "Flex Ltd",
+   "asset_class": "equity_us",
+   "listing_date": "2026-06-15",
+   "announce_url": "https://x.com/QFEX/status/2066486000570834996",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2066486000570834996",
+    "https://x.com/QFEX/status/2066491562746319300"
+   ],
+   "cnbc_symbol": "FLEX",
+   "cnbc_verified": true,
+   "last_close": 136.855,
+   "confidence": 0.97,
+   "notes": "US equity. Verified 522 bars. Standalone follow-up tweet is duplicate marketing."
+  },
+  {
+   "display_ticker": "PENG",
+   "name": "Penguin Solutions Inc",
+   "asset_class": "equity_us",
+   "listing_date": "2026-06-16",
+   "announce_url": "https://x.com/QFEX/status/2066904636057891006",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2066904636057891006"
+   ],
+   "cnbc_symbol": "PENG",
+   "cnbc_verified": true,
+   "last_close": 61.47,
+   "confidence": 0.93,
+   "notes": "Kawz favorites tweet, new. Penguin Solutions (Nasdaq: PENG, formerly SGH). Verified 476 bars."
+  },
+  {
+   "display_ticker": "MX",
+   "name": "MagnaChip Semiconductor Corp",
+   "asset_class": "equity_us",
+   "listing_date": "2026-06-16",
+   "announce_url": "https://x.com/QFEX/status/2066904636057891006",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2066904636057891006"
+   ],
+   "cnbc_symbol": "MX",
+   "cnbc_verified": true,
+   "last_close": 4.12,
+   "confidence": 0.9,
+   "notes": "Kawz favorites tweet, new. MagnaChip Semiconductor (NYSE: MX). Verified 522 bars."
+  },
+  {
+   "display_ticker": "WYFI",
+   "name": "WhiteFiber Inc",
+   "asset_class": "equity_us",
+   "listing_date": "2026-06-17",
+   "announce_url": "https://x.com/QFEX/status/2067236821751202017",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2067236821751202017",
+    "https://x.com/QFEX/status/2067590828847923279"
+   ],
+   "cnbc_symbol": "WYFI",
+   "cnbc_verified": true,
+   "last_close": 31.44,
+   "confidence": 0.92,
+   "notes": "Leopold Situational Awareness Fund addition, new. WhiteFiber (Nasdaq: WYFI), IPO Aug 2025. Verified 48 bars. Re-appears in Neocloud basket (06-18)."
+  },
+  {
+   "display_ticker": "TE",
+   "name": "T1 Energy Inc",
+   "asset_class": "equity_us",
+   "listing_date": "2026-06-17",
+   "announce_url": "https://x.com/QFEX/status/2067236821751202017",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2067236821751202017",
+    "https://x.com/QFEX/status/2070238210437894333"
+   ],
+   "cnbc_symbol": "TE",
+   "cnbc_verified": true,
+   "last_close": 8.56,
+   "confidence": 0.9,
+   "notes": "Leopold fund addition, new (06-17, earliest). T1 Energy (NYSE: TE). Verified 339 bars. 06-25 /trade/TE-USD link is marketing dup."
+  },
+  {
+   "display_ticker": "$HUT",
+   "name": "Hut 8 Corp",
+   "asset_class": "equity_us",
+   "listing_date": "2026-06-18",
+   "announce_url": "https://x.com/QFEX/status/2067590828847923279",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2067590828847923279"
+   ],
+   "cnbc_symbol": "HUT",
+   "cnbc_verified": true,
+   "last_close": 97.14,
+   "confidence": 0.97,
+   "notes": "New listing in Neocloud basket. Verified 435 bars."
+  },
+  {
+   "display_ticker": "$KEEL",
+   "name": "Koil Energy Solutions Inc",
+   "asset_class": "equity_us",
+   "listing_date": "2026-06-18",
+   "announce_url": "https://x.com/QFEX/status/2067590828847923279",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2067590828847923279"
+   ],
+   "cnbc_symbol": "KEEL",
+   "cnbc_verified": true,
+   "last_close": 4.59,
+   "confidence": 0.8,
+   "notes": "New listing in Neocloud basket. CNBC symbol KEEL verified 358 bars, last 4.59."
+  },
+  {
+   "display_ticker": "$CIFR",
+   "name": "Cipher Mining Inc",
+   "asset_class": "equity_us",
+   "listing_date": "2026-06-18",
+   "announce_url": "https://x.com/QFEX/status/2067590828847923279",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2067590828847923279"
+   ],
+   "cnbc_symbol": "CIFR",
+   "cnbc_verified": true,
+   "last_close": 20.04,
+   "confidence": 0.97,
+   "notes": "New listing in Neocloud basket. Verified 291 bars."
+  },
+  {
+   "display_ticker": "$IREN",
+   "name": "IREN Ltd",
+   "asset_class": "equity_us",
+   "listing_date": "2026-06-18",
+   "announce_url": "https://x.com/QFEX/status/2067590828847923279",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2067590828847923279"
+   ],
+   "cnbc_symbol": "IREN",
+   "cnbc_verified": true,
+   "last_close": 38.82,
+   "confidence": 0.95,
+   "notes": "Neocloud basket ('join the rest'). Verified 242 bars."
+  },
+  {
+   "display_ticker": "$DGXX",
+   "name": "Diginex Ltd",
+   "asset_class": "equity_us",
+   "listing_date": "2026-06-18",
+   "announce_url": "https://x.com/QFEX/status/2067590828847923279",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2067590828847923279"
+   ],
+   "cnbc_symbol": "DGXX",
+   "cnbc_verified": true,
+   "last_close": 4.6,
+   "confidence": 0.85,
+   "notes": "Neocloud basket. CNBC symbol DGXX verified 444 bars, last 4.60."
+  },
+  {
+   "display_ticker": "$SMCI",
+   "name": "Super Micro Computer Inc",
+   "asset_class": "equity_us",
+   "listing_date": "2026-06-23",
+   "announce_url": "https://x.com/QFEX/status/2069507907818017035",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2069507907818017035"
+   ],
+   "cnbc_symbol": "SMCI",
+   "cnbc_verified": true,
+   "last_close": 27.22,
+   "confidence": 0.97,
+   "notes": "New listing after liquidity upgrade. Verified 522 bars."
+  },
+  {
+   "display_ticker": "$GLXY",
+   "name": "Galaxy Digital Inc",
+   "asset_class": "equity_us",
+   "listing_date": "2026-06-23",
+   "announce_url": "https://x.com/QFEX/status/2069507907818017035",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2069507907818017035"
+   ],
+   "cnbc_symbol": "GLXY",
+   "cnbc_verified": true,
+   "last_close": 24.59,
+   "confidence": 0.95,
+   "notes": "New listing after liquidity upgrade. Verified 422 bars."
+  },
+  {
+   "display_ticker": "$COIN",
+   "name": "Coinbase Global Inc",
+   "asset_class": "equity_us",
+   "listing_date": "2026-06-23",
+   "announce_url": "https://x.com/QFEX/status/2069507907818017035",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2069507907818017035"
+   ],
+   "cnbc_symbol": "COIN",
+   "cnbc_verified": true,
+   "last_close": 165.48,
+   "confidence": 0.97,
+   "notes": "New listing after liquidity upgrade. Verified 274 bars."
+  },
+  {
+   "display_ticker": "$STRC",
+   "name": "Strategy Inc Preferred Stock (STRC)",
+   "asset_class": "equity_us",
+   "listing_date": "2026-06-23",
+   "announce_url": "https://x.com/QFEX/status/2069507907818017035",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2069507907818017035"
+   ],
+   "cnbc_symbol": "STRC",
+   "cnbc_verified": true,
+   "last_close": 87.87,
+   "confidence": 0.9,
+   "notes": "New listing, Strategy Inc preferred stock. CNBC STRC verified 50 bars (recent issue), last 87.87."
+  },
+  {
+   "display_ticker": "$LRCX",
+   "name": "Lam Research Corp",
+   "asset_class": "equity_us",
+   "listing_date": "2026-06-26",
+   "announce_url": "https://x.com/QFEX/status/2070529737278083522",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2070529737278083522"
+   ],
+   "cnbc_symbol": "LRCX",
+   "cnbc_verified": true,
+   "last_close": 351.41,
+   "confidence": 0.97,
+   "notes": "'New listing alert'. Verified 522 bars."
+  },
+  {
+   "display_ticker": "CRDO",
+   "name": "Credo Technology Group Holding Ltd",
+   "asset_class": "equity_us",
+   "listing_date": "2026-06-26",
+   "announce_url": "https://x.com/QFEX/status/2070529737278083522",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2070529737278083522"
+   ],
+   "cnbc_symbol": "CRDO",
+   "cnbc_verified": true,
+   "last_close": 241.91,
+   "confidence": 0.9,
+   "notes": "DATE/URL CORRECTED: raw had truncated header (approx 06-29, no url). Cross-check shows CRDO is in the 06-26 LRCX 'new listing alert' tweet ('$CRDO Credo Technology Group Holding Ltd'). Verified 232 bars, last 241.91."
+  },
+  {
+   "display_ticker": "SUIG",
+   "name": "SUI Group Holdings Ltd",
+   "asset_class": "equity_us",
+   "listing_date": "2026-06-26",
+   "announce_url": "https://x.com/QFEX/status/2070529737278083522",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2070529737278083522"
+   ],
+   "cnbc_symbol": "SUIG",
+   "cnbc_verified": true,
+   "last_close": 1.24,
+   "confidence": 0.88,
+   "notes": "DATE/URL CORRECTED: raw had truncated header. Cross-check shows SUIG is in the 06-26 LRCX 'new listing alert' tweet ('$SUIG SUI Group Holdings Ltd'). Verified 392 bars, last 1.24."
+  },
+  {
+   "display_ticker": "MSTR",
+   "name": "Strategy (MicroStrategy Inc)",
+   "asset_class": "equity_us",
+   "listing_date": "2026-06-29",
+   "announce_url": "https://x.com/QFEX/status/2071654611325173772",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2071654611325173772"
+   ],
+   "cnbc_symbol": "MSTR",
+   "cnbc_verified": true,
+   "last_close": 100.77,
+   "confidence": 0.85,
+   "notes": "Sole evidence is qfex.com/trade/MSTR-USD link; emitted per /trade rule. No explicit new-listing language. Verified 522 bars, last 100.77."
+  },
+  {
+   "display_ticker": "BRK.B",
+   "name": "Berkshire Hathaway Inc. Class B",
+   "asset_class": "equity_us",
+   "listing_date": "2026-06-29",
+   "announce_url": "https://x.com/QFEX/status/2071662635213336774",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2071662635213336774"
+   ],
+   "cnbc_symbol": "BRK.B",
+   "cnbc_verified": true,
+   "last_close": 507.78,
+   "confidence": 0.97,
+   "notes": "'$BRK.B is now live' - explicit new listing. Verified 522 bars, last 507.78."
+  },
+  {
+   "display_ticker": "FCEL",
+   "name": "FuelCell Energy Inc",
+   "asset_class": "equity_us",
+   "listing_date": "2026-06-29",
+   "announce_url": "https://x.com/QFEX/status/2071677816790237655",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2071677816790237655"
+   ],
+   "cnbc_symbol": "FCEL",
+   "cnbc_verified": true,
+   "last_close": 28.11,
+   "confidence": 0.96,
+   "notes": "'$FCEL is now live' - explicit new listing. Verified 522 bars, last 28.11."
+  },
+  {
+   "display_ticker": "CCXI",
+   "name": "Churchill Capital Corp XI",
+   "asset_class": "equity_us",
+   "listing_date": "2026-06-30",
+   "announce_url": "https://x.com/QFEX/status/2071693046060667320",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2071693046060667320"
+   ],
+   "cnbc_symbol": "CCXI",
+   "cnbc_verified": true,
+   "last_close": 19.1,
+   "confidence": 0.9,
+   "notes": "'$CCXI is now live'. SPAC (IPO Dec 2025; Agility Robotics merger, future ticker AGLT). 21 bars, last 19.10."
+  },
+  {
+   "display_ticker": "OUST",
+   "name": "Ouster Inc",
+   "asset_class": "equity_us",
+   "listing_date": "2026-06-30",
+   "announce_url": "https://x.com/QFEX/status/2071934293803241532",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2071934293803241532",
+    "https://x.com/QFEX/status/2071972441182654576"
+   ],
+   "cnbc_symbol": "OUST",
+   "cnbc_verified": true,
+   "last_close": 49.84,
+   "confidence": 0.96,
+   "notes": "'New Markets Now Live! $OUST Ouster Inc.'. Verified 300 bars. Follow-up /trade/OUST-USD tweet is marketing dup."
+  },
+  {
+   "display_ticker": "SHAZ",
+   "name": "SharonAI Holdings Inc",
+   "asset_class": "equity_us",
+   "listing_date": "2026-06-30",
+   "announce_url": "https://x.com/QFEX/status/2071934293803241532",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2071934293803241532"
+   ],
+   "cnbc_symbol": "SHAZ",
+   "cnbc_verified": true,
+   "last_close": 67.91,
+   "confidence": 0.9,
+   "notes": "'New Markets Now Live! $SHAZ SharonAI Holdings Inc.'. Verified 160 bars, last 67.91."
+  },
+  {
+   "display_ticker": "ALAB",
+   "name": "Astera Labs Inc",
+   "asset_class": "equity_us",
+   "listing_date": "2026-06-30",
+   "announce_url": "https://x.com/QFEX/status/2071934293803241532",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2071934293803241532"
+   ],
+   "cnbc_symbol": "ALAB",
+   "cnbc_verified": true,
+   "last_close": 406.42,
+   "confidence": 0.95,
+   "notes": "'New Markets Now Live! $ALAB Astera Labs, Inc.'. Verified 121 bars, last 406.42."
+  },
+  {
+   "display_ticker": "PLUG",
+   "name": "Plug Power Inc",
+   "asset_class": "equity_us",
+   "listing_date": "2026-07-01",
+   "announce_url": "https://x.com/QFEX/status/2072315315409633475",
+   "all_tweet_urls": [
+    "https://x.com/QFEX/status/2072315315409633475"
+   ],
+   "cnbc_symbol": "PLUG",
+   "cnbc_verified": true,
+   "last_close": 2.64,
+   "confidence": 0.94,
+   "notes": "'New Listing Alert We're $PLUGged in' - explicit new listing. Verified 522 bars, last 2.64."
+  }
+ ],
+ "excluded": [
+  {
+   "ticker": "IBM",
+   "reason": "Not a live listing. Tweet 2064408753500262862 (2026-06-09) says '$IBM getting listed soon' — a future/teaser, no tradeable market yet. Excluded until an actual now-live confirmation appears."
+  },
+  {
+   "ticker": "PARTIAL_CLOSE",
+   "reason": "Not a tradeable asset. Tweet 2021257959062335871 (2026-02-10) announces a product feature ('we have added partial close on positions'), not an asset listing."
+  }
+ ],
+ "summary": "92 canonical listings span 2026-01-07 (opening TSLA/META/PLTR/RKLB/CRWV + Silver/Uranium/EUR-USD batch) through 2026-07-01 (Plug Power), each deduplicated to its earliest tweet date with all repeat-basket appearances folded into all_tweet_urls. Asset-class breakdown: 73 US equities (equity_us), 4 Korean equities (equity_kr: Samsung, Hyundai, Kia, SK Hynix), 2 international equities (equity_intl: Alibaba, Sivers Semiconductors), 4 indices (US500/.SPX, TAIEX, HSI, Nikkei 225), 4 commodities (Crude @CL.1, NatGas @NG.1, Silver @SI.1, Uranium via URA proxy), 4 ETFs (BOT, DRAM, IGV, SOXL), and 1 forex pair (EUR/USD via EUR=). All 92 carry a CNBC-verified symbol (cnbc_verified=true); every symbol was confirmed against the CNBC 5Y chart API. Coverage cross-check against the full tweet set surfaced four raw-data gaps that I fixed: (1) added three entirely missed listings — WMT, AMD, AVGO — from the 2026-04-09 'New Nasdaq equities' tweet (all verified 522 bars); (2) corrected MU's date to 2026-04-09 (raw only had it in later Kawz/Leopold baskets); (3) corrected CIEN/AAOI/AXTI to 2026-04-22, since the photonics essay explicitly lists all six photonics names that day; and (4) fixed CRDO and SUIG, whose raw headers were truncated (approx 06-29, no URL) — they actually belong to the 2026-06-26 LRCX 'new listing alert' tweet. Two items were excluded: IBM ('getting listed soon', a teaser not yet live) and a partial-close product feature (not an asset). Lowest-confidence entries are the /trade-link-only or proxy cases (MSTR 0.85, Uranium/URA 0.85, KEEL 0.8, DGXX 0.85) but all remain CNBC-verified with sane last closes."
+}

@@ -1,0 +1,130 @@
+import { useEffect, useMemo, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import type { HorizonKey, IndexData } from "./types";
+import { loadIndex, type LoadProgress } from "./api";
+import { statsFor } from "./lib";
+import { enter, useStill } from "./anim";
+import Hero from "./components/Hero";
+import HorizonScrubber from "./components/HorizonScrubber";
+import StatsBand from "./components/StatsBand";
+import IndexTable from "./components/IndexTable";
+import LoadingScreen from "./components/LoadingScreen";
+import SyncOverlay from "./components/SyncOverlay";
+
+const FILTERS: { key: string; label: string; test: (c: string) => boolean }[] = [
+  { key: "all", label: "All", test: () => true },
+  { key: "equity", label: "Equities", test: (c) => c.startsWith("equity") },
+  { key: "index", label: "Indices & ETFs", test: (c) => c === "index" },
+  { key: "macro", label: "Commodity & FX", test: (c) => ["commodity", "forex"].includes(c) },
+];
+
+export default function App() {
+  const [data, setData] = useState<IndexData | null>(null);
+  const [err, setErr] = useState<string | null>(null);
+  const [loadProg, setLoadProg] = useState<LoadProgress | null>(null);
+  const [horizon, setHorizon] = useState<HorizonKey>("1M");
+  const [filter, setFilter] = useState("all");
+  const [syncing, setSyncing] = useState(
+    typeof window !== "undefined" && new URLSearchParams(window.location.search).has("sync")
+  );
+  const still = useStill();
+
+  const load = () =>
+    loadIndex(setLoadProg).then((d) => { setData(d); setErr(null); }).catch((e) => setErr(String(e)));
+
+  useEffect(() => { load(); }, []); // eslint-disable-line
+
+  const filtered = useMemo(() => {
+    if (!data) return [];
+    const f = FILTERS.find((x) => x.key === filter)!;
+    return data.listings.filter((l) => l.ok && f.test(l.asset_class));
+  }, [data, filter]);
+
+  const stats = useMemo(() => statsFor(filtered, horizon), [filtered, horizon]);
+
+  if (err && !data) return (
+    <div className="loading">
+      <div style={{ textAlign: "center" }}>
+        <div style={{ marginBottom: 12 }}>{err}</div>
+        <button className="chip active" onClick={() => setSyncing(true)}>Sync from QFEX</button>
+      </div>
+      <AnimatePresence>
+        {syncing && <SyncOverlay onClose={() => setSyncing(false)} onDone={() => { setSyncing(false); load(); }} />}
+      </AnimatePresence>
+    </div>
+  );
+  if (!data) return <LoadingScreen progress={loadProg} />;
+
+  return (
+    <div className="app">
+      <div className="shell">
+        <Hero data={data} />
+
+        <section className="index-section">
+          <div className="section-head">
+            <div>
+              <h2 className="section-title">The index</h2>
+              <p className="section-sub">
+                Every market on QFEX — priced from its own perp candles, returns and benchmark-adjusted
+                alpha, matched to the announcing tweet where one exists. Click any row for the full path.
+              </p>
+            </div>
+            <div className="section-controls">
+              <button className="sync-btn" onClick={() => setSyncing(true)} title="Re-download every market live from api.qfex.com">
+                <span className="sync-btn-dot" /> Sync from QFEX
+              </button>
+              <HorizonScrubber horizons={data.horizons} value={horizon} onChange={setHorizon} />
+            </div>
+          </div>
+
+          <div className="controls">
+            <div className="filters">
+              {FILTERS.map((f) => {
+                const n = data.listings.filter((l) => l.ok && f.test(l.asset_class)).length;
+                return (
+                  <button
+                    key={f.key}
+                    className={`chip ${filter === f.key ? "active" : ""}`}
+                    onClick={() => setFilter(f.key)}
+                  >
+                    {f.label} <span className="chip-n mono">{n}</span>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={filter + horizon}
+              initial={enter({ opacity: 0, y: 8 }, still)}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+            >
+              <StatsBand ret={stats.return} alpha={stats.alpha} horizon={horizon} benchName={data.benchmark.name} />
+            </motion.div>
+          </AnimatePresence>
+
+          <IndexTable listings={filtered} horizon={horizon} benchName={data.benchmark.name} />
+        </section>
+
+        <footer className="footer">
+          <div className="mono">
+            Source: QFEX exchange (api.qfex.com) perp candles · benchmark {data.benchmark.name} ({data.benchmark.symbol}) ·{" "}
+            {data.counts?.markets} markets · generated {new Date(data.generated).toLocaleString()}
+          </div>
+          <div className="foot-note">
+            Each market is priced from its own QFEX perpetual, entered at the first candle (its launch on QFEX). Alpha =
+            listing return minus the {data.benchmark.name} perp over the identical window. Horizons are calendar days
+            (QFEX trades 24/7). Not investment advice.
+          </div>
+        </footer>
+      </div>
+
+      <AnimatePresence>
+        {syncing && <SyncOverlay onClose={() => setSyncing(false)} onDone={() => { setSyncing(false); load(); }} />}
+      </AnimatePresence>
+    </div>
+  );
+}
