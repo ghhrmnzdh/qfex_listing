@@ -76,23 +76,23 @@ def main():
 *{{margin:0;padding:0;box-sizing:border-box}}
 html,body{{width:1200px;height:630px}}
 .card{{width:1200px;height:630px;background:#0a0b0d;position:relative;overflow:hidden;
-  font-family:'Inter',system-ui,sans-serif;color:#ecebe6;padding:56px 60px}}
+  font-family:'Inter',system-ui,sans-serif;color:#f1f3f8;padding:56px 60px}}
 .card::before{{content:"";position:absolute;inset:0;
-  background:radial-gradient(80% 60% at 88% -8%, rgba(231,178,74,0.12), transparent 60%),
+  background:radial-gradient(80% 60% at 88% -8%, rgba(89,163,159,0.16), transparent 60%),
              radial-gradient(60% 50% at 6% 110%, rgba(53,209,154,0.06), transparent 60%);}}
 .grid{{position:absolute;inset:0;opacity:.4;
   background-image:linear-gradient(90deg,#12161b 1px,transparent 1px);background-size:40px 40px;
   -webkit-mask-image:linear-gradient(180deg,transparent,#000 40%);mask-image:linear-gradient(180deg,transparent,#000 40%)}}
 .eyebrow{{display:flex;align-items:center;gap:12px;font-family:'IBM Plex Mono',monospace;
   font-size:16px;letter-spacing:.28em;text-transform:uppercase;color:#9aa1ab;position:relative}}
-.q{{color:#e3a53e}}
+.q{{color:#59a39f}}
 h1{{font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:70px;line-height:1.0;
   letter-spacing:-.02em;margin:30px 0 12px;position:relative;max-width:16ch}}
 .verdict{{font-family:'Instrument Serif',serif;font-style:italic;font-size:46px;color:#f5f4f0;
   position:relative;margin-bottom:26px}}
 .stats{{font-family:'IBM Plex Mono',monospace;font-size:20px;color:#9aa1ab;position:relative;letter-spacing:.01em}}
-.stats b{{color:#ecebe6;font-weight:600}}
-.stats .g{{color:#e3a53e}}
+.stats b{{color:#f1f3f8;font-weight:600}}
+.stats .g{{color:#59a39f}}
 .chart{{position:absolute;left:60px;right:60px;bottom:52px}}
 .foot{{position:absolute;left:60px;bottom:22px;font-family:'IBM Plex Mono',monospace;
   font-size:14px;color:#5c636e;letter-spacing:.04em}}
@@ -106,11 +106,11 @@ h1{{font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:70px;line-h
   <div class="chart">
     <svg viewBox="0 0 {W} {H}" width="100%" height="{H}" preserveAspectRatio="none">
       <defs><linearGradient id="ga" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0%" stop-color="#e3a53e" stop-opacity="0.22"/><stop offset="100%" stop-color="#e3a53e" stop-opacity="0"/></linearGradient></defs>
+        <stop offset="0%" stop-color="#59a39f" stop-opacity="0.22"/><stop offset="100%" stop-color="#59a39f" stop-opacity="0"/></linearGradient></defs>
       <line x1="0" y1="{zero_y:.1f}" x2="{W}" y2="{zero_y:.1f}" stroke="#1f242c" stroke-width="1"/>
       <path d="{alpha_area}" fill="url(#ga)"/>
-      <path d="{alpha_path}" fill="none" stroke="#e3a53e" stroke-width="2" vector-effect="non-scaling-stroke"/>
-      <path d="{ret_path}" fill="none" stroke="#ecebe6" stroke-width="2.4" vector-effect="non-scaling-stroke"/>
+      <path d="{alpha_path}" fill="none" stroke="#59a39f" stroke-width="2" vector-effect="non-scaling-stroke"/>
+      <path d="{ret_path}" fill="none" stroke="#f1f3f8" stroke-width="2.4" vector-effect="non-scaling-stroke"/>
     </svg>
   </div>
   <div class="foot">Equal-weight event study &middot; every listing aligned to its QFEX launch &middot; priced on QFEX perps</div>
