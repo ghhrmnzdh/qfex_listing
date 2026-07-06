@@ -1,6 +1,6 @@
-import { useMemo, useState } from "react";
+import { useId, useMemo, useState } from "react";
 import { motion } from "framer-motion";
-import { useStill } from "../anim";
+import { enter, useStill } from "../anim";
 import { pct } from "../lib";
 
 export interface EventPoint {
@@ -19,10 +19,12 @@ interface Props {
 
 /** The signature: equal-weight cumulative-average return of every listing,
  *  indexed by trading day since listing, with the benchmark-adjusted alpha
- *  shaded beneath. This is the QFEX Listing Index event study. */
+ *  shaded beneath. Lines are revealed by an animated clip (no stroke-dash
+ *  artifacts under the non-uniform viewBox). */
 export default function EventStudyChart({ curve, benchName, height = 300 }: Props) {
   const [hover, setHover] = useState<number | null>(null);
   const still = useStill();
+  const clip = useId().replace(/:/g, "");
   const W = 100;
 
   const g = useMemo(() => {
@@ -43,13 +45,11 @@ export default function EventStudyChart({ curve, benchName, height = 300 }: Prop
     const retLine = mk("mean_ret");
     const alphaLine = mk("alpha");
     const alphaArea = `${alphaLine} L${x(curve.length - 1)},${y(0)} L0,${y(0)} Z`;
-    return { x, y, zeroY: y(0), retLine, alphaLine, alphaArea, lo, hi };
+    return { x, y, zeroY: y(0), retLine, alphaLine, alphaArea };
   }, [curve, height]);
 
   if (!g) return null;
   const hp = hover !== null ? curve[hover] : curve[curve.length - 1];
-
-  // day markers
   const marks = [1, 5, 21, 63].filter((d) => d <= curve[curve.length - 1].day);
 
   return (
@@ -66,46 +66,34 @@ export default function EventStudyChart({ curve, benchName, height = 300 }: Prop
         onMouseLeave={() => setHover(null)}
       >
         <defs>
-          <linearGradient id="esAlpha" x1="0" y1="0" x2="0" y2="1">
+          <linearGradient id={`${clip}g`} x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stopColor="var(--gold)" stopOpacity="0.20" />
             <stop offset="100%" stopColor="var(--gold)" stopOpacity="0" />
           </linearGradient>
         </defs>
 
         <line x1="0" x2={W} y1={g.zeroY} y2={g.zeroY} stroke="var(--line)" strokeWidth="0.5" vectorEffect="non-scaling-stroke" />
-
         {marks.map((d) => {
           const i = curve.findIndex((p) => p.day === d);
           if (i < 0) return null;
           return <line key={d} x1={g.x(i)} x2={g.x(i)} y1="0" y2={height} stroke="var(--line-soft)" strokeWidth="0.4" vectorEffect="non-scaling-stroke" />;
         })}
 
-        {/* alpha area + line (gold) */}
-        <motion.path d={g.alphaArea} fill="url(#esAlpha)" initial={still ? false : { opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8, delay: 0.3 }} />
-        <motion.path
-          d={g.alphaLine} fill="none" stroke="var(--gold)" strokeWidth="1.4" strokeLinecap="round" vectorEffect="non-scaling-stroke"
-          initial={still ? false : { pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-        />
-        {/* asset cumulative return (bright) */}
-        <motion.path
-          d={g.retLine} fill="none" stroke="var(--text)" strokeWidth="1.6" strokeLinecap="round" vectorEffect="non-scaling-stroke"
-          initial={still ? false : { pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
-        />
+        <motion.g initial={enter({ opacity: 0 }, still)} animate={{ opacity: 1 }} transition={{ duration: 0.7, ease: "easeOut" }}>
+          <path d={g.alphaArea} fill={`url(#${clip}g)`} />
+          <path d={g.alphaLine} fill="none" stroke="var(--gold)" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" vectorEffect="non-scaling-stroke" />
+          <path d={g.retLine} fill="none" stroke="var(--text)" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" vectorEffect="non-scaling-stroke" />
+        </motion.g>
 
         {hover !== null && (
           <line x1={g.x(hover)} x2={g.x(hover)} y1="0" y2={height} stroke="var(--text-faint)" strokeWidth="0.5" vectorEffect="non-scaling-stroke" />
         )}
       </svg>
 
-      {/* day-axis labels */}
       <div className="es-axis mono">
         {marks.map((d) => {
           const i = curve.findIndex((p) => p.day === d);
-          return (
-            <span key={d} style={{ left: `${(i / (curve.length - 1)) * 100}%` }}>
-              {d}d
-            </span>
-          );
+          return <span key={d} style={{ left: `${(i / (curve.length - 1)) * 100}%` }}>{d}d</span>;
         })}
       </div>
 
