@@ -19,3 +19,5 @@ frontend/dist/
 
 # QFEX raw cache (refdata + candles) — historical, regenerable
 backend/qfex_cache/
+
+frontend/tsconfig.tsbuildinfo
