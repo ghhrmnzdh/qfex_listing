@@ -85,31 +85,31 @@ html,body{{width:1200px;height:630px}}
   -webkit-mask-image:linear-gradient(180deg,transparent,#000 40%);mask-image:linear-gradient(180deg,transparent,#000 40%)}}
 .eyebrow{{display:flex;align-items:center;gap:12px;font-family:'IBM Plex Mono',monospace;
   font-size:16px;letter-spacing:.28em;text-transform:uppercase;color:#9aa1ab;position:relative}}
-.q{{color:#e7b24a}}
+.q{{color:#e3a53e}}
 h1{{font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:70px;line-height:1.0;
   letter-spacing:-.02em;margin:30px 0 12px;position:relative;max-width:16ch}}
-.verdict{{font-family:'Instrument Serif',serif;font-style:italic;font-size:46px;color:#e7b24a;
+.verdict{{font-family:'Instrument Serif',serif;font-style:italic;font-size:46px;color:#f5f4f0;
   position:relative;margin-bottom:26px}}
 .stats{{font-family:'IBM Plex Mono',monospace;font-size:20px;color:#9aa1ab;position:relative;letter-spacing:.01em}}
 .stats b{{color:#ecebe6;font-weight:600}}
-.stats .g{{color:#e7b24a}}
+.stats .g{{color:#e3a53e}}
 .chart{{position:absolute;left:60px;right:60px;bottom:52px}}
 .foot{{position:absolute;left:60px;bottom:22px;font-family:'IBM Plex Mono',monospace;
   font-size:14px;color:#5c636e;letter-spacing:.04em}}
 </style></head><body>
 <div class="card">
   <div class="grid"></div>
-  <div class="eyebrow"><svg class="q" width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.2" stroke="currentColor" stroke-width="2.6"/><path d="M14.4 14.4 L19 19" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg> THE QFEX LISTING INDEX</div>
+  <div class="eyebrow"><svg class="q" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M2.5 18.5 L7 13.5 L11 15.5 L15 9 L21.5 3.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="21.5" cy="3.5" r="2.1" fill="currentColor"/></svg> THE QFEX LISTING INDEX</div>
   <h1>Is there alpha in QFEX&rsquo;s listings?</h1>
   <div class="verdict">{verdict}</div>
   <div class="stats"><b>{markets}</b> markets &middot; <span class="g">{pctm}</span> avg 1-month excess &middot; <b>{beat*100:.0f}%</b> beat the S&amp;P &middot; t&thinsp;=&thinsp;{t:.1f} clustered ({sig})</div>
   <div class="chart">
     <svg viewBox="0 0 {W} {H}" width="100%" height="{H}" preserveAspectRatio="none">
       <defs><linearGradient id="ga" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0%" stop-color="#e7b24a" stop-opacity="0.22"/><stop offset="100%" stop-color="#e7b24a" stop-opacity="0"/></linearGradient></defs>
+        <stop offset="0%" stop-color="#e3a53e" stop-opacity="0.22"/><stop offset="100%" stop-color="#e3a53e" stop-opacity="0"/></linearGradient></defs>
       <line x1="0" y1="{zero_y:.1f}" x2="{W}" y2="{zero_y:.1f}" stroke="#1f242c" stroke-width="1"/>
       <path d="{alpha_area}" fill="url(#ga)"/>
-      <path d="{alpha_path}" fill="none" stroke="#e7b24a" stroke-width="2" vector-effect="non-scaling-stroke"/>
+      <path d="{alpha_path}" fill="none" stroke="#e3a53e" stroke-width="2" vector-effect="non-scaling-stroke"/>
       <path d="{ret_path}" fill="none" stroke="#ecebe6" stroke-width="2.4" vector-effect="non-scaling-stroke"/>
     </svg>
   </div>

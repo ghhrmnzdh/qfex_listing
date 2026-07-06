@@ -2,6 +2,7 @@ import { useMemo } from "react";
 import type { Listing } from "../types";
 import { pct } from "../lib";
 import { useStill } from "../anim";
+import { IndexMark } from "./Brand";
 
 /**
  * QFEX-signature split-flap ticker tape — an homage to the amber Solari board on
@@ -28,10 +29,10 @@ export default function TickerTape({ listings }: { listings: Listing[] }) {
 
   return (
     <div className="tape" role="marquee" aria-label="QFEX listings ticker">
-      <a className="tape-brand" href="https://www.qfex.com" target="_blank" rel="noreferrer" aria-label="QFEX">
-        <QMark />
-        <span className="tape-brand-txt mono">QFEX</span>
-      </a>
+      <span className="tape-brand" aria-label="The Listing Index">
+        <IndexMark size={18} />
+        <span className="tape-brand-txt mono">LISTING&nbsp;INDEX</span>
+      </span>
 
       <div className="tape-viewport">
         <div className={`tape-track ${still ? "static" : ""}`}>
@@ -49,15 +50,5 @@ export default function TickerTape({ listings }: { listings: Listing[] }) {
         Trade on QFEX <span aria-hidden>↗</span>
       </a>
     </div>
-  );
-}
-
-/** The QFEX "Q" mark — a ring with a quantum tail. */
-export function QMark({ size = 18 }: { size?: number }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden>
-      <circle cx="12" cy="12" r="8.2" stroke="currentColor" strokeWidth="2.4" />
-      <path d="M14.4 14.4 L19 19" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" />
-    </svg>
   );
 }

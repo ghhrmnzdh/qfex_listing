@@ -12,6 +12,7 @@ import LoadingScreen from "./components/LoadingScreen";
 import SyncOverlay from "./components/SyncOverlay";
 import Methodology from "./components/Methodology";
 import TickerTape from "./components/TickerTape";
+import Outro from "./components/Outro";
 
 const FILTERS: { key: string; label: string; test: (c: string) => boolean }[] = [
   { key: "all", label: "All", test: () => true },
@@ -126,6 +127,8 @@ export default function App() {
         </section>
 
         <Methodology data={data} />
+
+        <Outro />
 
         <footer className="footer">
           <div className="mono">
