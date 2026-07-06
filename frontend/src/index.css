@@ -1,7 +1,7 @@
 /* ============================================================
    The QFEX Listing Index — quant tearsheet design system
    Canvas: near-black ink. Color is semantic only:
-     green/red = P&L, gold = "alpha" signal.
+     green/red = Pgreen/red = P&L, gold = "alpha" signal.L, teal = accent / excess signal.
    Type: Space Grotesk (display) · Inter (UI) · IBM Plex Mono (data)
    ============================================================ */
 @import "@fontsource/space-grotesk/400.css";
@@ -101,11 +101,11 @@ a { color: inherit; text-decoration: none; }
 
 /* ============================================================
    QFEX brand signature — editorial serif accent + split-flap
-   ticker tape (homage to the amber Solari board on qfex.com)
+   ticker tape (a nod to the Solari board on qfex.com)
    ============================================================ */
 
 /* the verdict lead-in borrows QFEX's grotesk + italic-serif headline move
-   (white serif, like "by quants." — amber is reserved for data) */
+   (white serif, like "by quants." — the accent is reserved for data) */
 .hero-answer .hl {
   font-family: var(--font-serif);
   font-style: italic;
