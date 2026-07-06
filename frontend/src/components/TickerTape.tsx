@@ -2,7 +2,7 @@ import { useMemo } from "react";
 import type { Listing } from "../types";
 import { pct } from "../lib";
 import { useStill } from "../anim";
-import { IndexMark } from "./Brand";
+import { IndexMark, GitHubIcon, REPO_URL } from "./Brand";
 
 /**
  * QFEX-signature split-flap ticker tape — an homage to the amber Solari board on
@@ -46,6 +46,9 @@ export default function TickerTape({ listings }: { listings: Listing[] }) {
         </div>
       </div>
 
+      <a className="tape-gh" href={REPO_URL} target="_blank" rel="noreferrer" aria-label="View source on GitHub" title="View source on GitHub">
+        <GitHubIcon size={17} />
+      </a>
       <a className="tape-cta" href="https://www.qfex.com" target="_blank" rel="noreferrer">
         Trade on QFEX <span aria-hidden>↗</span>
       </a>
