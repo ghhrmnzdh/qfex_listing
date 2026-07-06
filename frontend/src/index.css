@@ -1,7 +1,7 @@
 /* ============================================================
    The QFEX Listing Index — quant tearsheet design system
    Canvas: near-black ink. Color is semantic only:
-     green/red = Pgreen/red = P&L, gold = "alpha" signal.L, teal = accent / excess signal.
+     green/red = P&L, teal = accent / excess signal.
    Type: Space Grotesk (display) · Inter (UI) · IBM Plex Mono (data)
    ============================================================ */
 @import "@fontsource/space-grotesk/400.css";
