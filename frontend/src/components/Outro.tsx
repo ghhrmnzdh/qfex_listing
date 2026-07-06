@@ -25,8 +25,8 @@ export default function Outro() {
         </motion.div>
 
         <h2 className="outro-title">
-          <motion.span className="outro-line-a" {...rise(0.05)}>Made for markets</motion.span>
-          <motion.span className="outro-line-b" {...rise(0.13)}>that never close.</motion.span>
+          <motion.span className="outro-line-a" {...rise(0.05)}>Made for quants,</motion.span>
+          <motion.span className="outro-line-b" {...rise(0.13)}>by quants.</motion.span>
         </h2>
 
         <motion.p className="outro-sub" {...rise(0.2)}>

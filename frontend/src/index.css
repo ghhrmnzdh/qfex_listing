@@ -25,20 +25,24 @@
   --line: #1f242c;
   --line-soft: #171b21;
 
-  /* text — QFEX runs near-pure white on black */
-  --text: #f5f4f0;
-  --text-dim: #9aa1ab;
-  --text-faint: #5c636e;
+  /* text — cool near-white on ink */
+  --text: #f1f3f8;
+  --text-dim: #969ba9;
+  --text-faint: #565d69;
 
-  /* semantic P&L */
-  --pos: #3fcf98;
+  /* semantic P&L — kept distinct from the teal accent (brighter, cooler green) */
+  --pos: #3ddc8a;
   --pos-dim: #1f7a5c;
-  --neg: #ef6a63;
+  --neg: #ff6b6b;
   --neg-dim: #99383c;
 
-  /* brand accent — QFEX's warm split-flap amber (data / ticker only) */
-  --gold: #e3a53e;
-  --gold-soft: #6b5024;
+  /* brand accent — muted teal (data / brand / active state).
+     --gold/--gold-soft kept as aliases so existing usages recolor cleanly. */
+  --accent: #59a39f;
+  --accent-strong: #74bdb8;
+  --accent-soft: #21403d;
+  --gold: var(--accent);
+  --gold-soft: var(--accent-soft);
 
   --radius: 10px;
   --maxw: 1180px;
@@ -71,14 +75,14 @@ body::before {
   inset: 0;
   pointer-events: none;
   background:
-    radial-gradient(120% 80% at 50% -10%, rgba(231,178,74,0.05), transparent 55%),
+    radial-gradient(120% 80% at 50% -10%, rgba(89,163,159,0.06), transparent 55%),
     radial-gradient(100% 60% at 100% 100%, rgba(53,209,154,0.03), transparent 60%);
   z-index: 0;
 }
 
 a { color: inherit; text-decoration: none; }
 
-::selection { background: rgba(231,178,74,0.25); color: #fff; }
+::selection { background: rgba(89,163,159,0.26); color: #fff; }
 
 .mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
 .tnum { font-variant-numeric: tabular-nums; }
@@ -146,8 +150,8 @@ a { color: inherit; text-decoration: none; }
 .tape-arw { font-size: 8px; position: relative; top: -1px; font-style: normal; }
 .tape-arw.up { color: var(--pos); }
 .tape-arw.dn { color: var(--neg); }
-.tape-sym { color: var(--gold); font-weight: 600; letter-spacing: 0.06em; }
-.tape-val { color: var(--gold); opacity: 0.72; }
+.tape-sym { color: var(--text); font-weight: 600; letter-spacing: 0.06em; }
+.tape-val { color: var(--text-dim); }
 
 .tape-cta {
   flex: 0 0 auto; display: inline-flex; align-items: center; gap: 6px;
@@ -173,9 +177,11 @@ a { color: inherit; text-decoration: none; }
 }
 .outro-glow {
   position: absolute; inset: 0; pointer-events: none;
+  /* a single, symmetric warm lift rising from behind the CTA — kept near-neutral
+     and very low so the amber stays reserved for data, not background wash */
   background:
-    radial-gradient(60% 120% at 50% 120%, rgba(231,178,74,0.10), transparent 60%),
-    radial-gradient(40% 80% at 85% -10%, rgba(231,178,74,0.06), transparent 60%);
+    radial-gradient(78% 92% at 50% 116%,
+      rgba(233,214,180,0.05), rgba(233,214,180,0.016) 40%, transparent 66%);
 }
 .outro-inner { position: relative; max-width: 900px; }
 .outro-eyebrow {
@@ -204,7 +210,7 @@ a { color: inherit; text-decoration: none; }
   font-size: 15px; font-weight: 600; padding: 14px 26px; border-radius: 999px;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-.outro-cta:hover { transform: translateY(-2px); box-shadow: 0 16px 44px rgba(231,178,74,0.18); }
+.outro-cta:hover { transform: translateY(-2px); box-shadow: 0 16px 44px rgba(89,163,159,0.22); }
 .outro-link { color: var(--text-dim); font-size: 14px; transition: color 0.2s; }
 .outro-link:hover { color: var(--gold); }
 .outro-fine { margin-top: 40px; font-size: 12px; color: var(--text-faint); letter-spacing: 0.02em; }

@@ -92,7 +92,7 @@ export default function Hero({ data }: { data: IndexData }) {
         <EventStudyChart curve={data.event_study} benchName={data.benchmark.name} />
         <p className="hero-chart-note">
           Each line averages the cumulative return of every equity listing at the same number of calendar days after it
-          listed on QFEX (perps trade 24/7). The gold band is the excess over the {data.benchmark.name} (β=1). Sample
+          listed on QFEX (perps trade 24/7). The shaded band is the excess over the {data.benchmark.name} (β=1). Sample
           thins past ~1 month — only the earliest listings are old enough to reach the right edge, so the tail is a
           different, smaller cohort, not the full basket.
         </p>
