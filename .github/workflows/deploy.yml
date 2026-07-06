@@ -5,7 +5,7 @@ name: Deploy QFEX Listing Index to GitHub Pages
 
 on:
   push:
-    branches: [main]
+    branches: [main, master]
   workflow_dispatch: # lets you trigger a rebuild from the Actions tab
 
 permissions:
@@ -36,6 +36,8 @@ jobs:
           npm run build
 
       - uses: actions/configure-pages@v5
+        with:
+          enablement: true # auto-provision Pages if it hasn't been enabled yet
 
       - uses: actions/upload-pages-artifact@v3
         with:
