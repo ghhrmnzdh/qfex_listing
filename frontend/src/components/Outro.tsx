@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { enter, useStill } from "../anim";
-import { IndexMark } from "./Brand";
+import { IndexMark, GitHubIcon, REPO_URL } from "./Brand";
 
 /**
  * Closing section — QFEX-style editorial headline (grotesk + italic serif) with
@@ -40,6 +40,9 @@ export default function Outro() {
           </a>
           <a className="outro-link" href="https://x.com/QFEX" target="_blank" rel="noreferrer">
             @QFEX on X <span aria-hidden>↗</span>
+          </a>
+          <a className="outro-link outro-gh" href={REPO_URL} target="_blank" rel="noreferrer">
+            <GitHubIcon size={16} /> View source
           </a>
         </motion.div>
 
