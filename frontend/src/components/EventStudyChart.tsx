@@ -99,10 +99,10 @@ export default function EventStudyChart({ curve, benchName, height = 300 }: Prop
 
       <div className="es-legend">
         <span className="es-leg"><i style={{ background: "var(--text)" }} /> Mean return</span>
-        <span className="es-leg"><i style={{ background: "var(--gold)" }} /> Alpha vs {benchName}</span>
+        <span className="es-leg"><i style={{ background: "var(--gold)" }} /> Excess vs {benchName}</span>
         <span className="es-read mono">
           day {hp.day} · ret <b style={{ color: hp.mean_ret >= 0 ? "var(--pos)" : "var(--neg)" }}>{pct(hp.mean_ret)}</b>
-          {hp.mean_alpha != null && <> · alpha <b style={{ color: "var(--gold)" }}>{pct(hp.mean_alpha)}</b></>}
+          {hp.mean_alpha != null && <> · excess <b style={{ color: "var(--gold)" }}>{pct(hp.mean_alpha)}</b></>}
           <span style={{ color: "var(--text-faint)" }}> · n={hp.n}</span>
         </span>
       </div>

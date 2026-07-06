@@ -52,7 +52,7 @@ export default function IndexTable({ listings, horizon, benchName }: Props) {
         <button className="th th-date" onClick={() => setSortKey("date")}>Listed {arrow("date")}</button>
         <div className="th th-spark">Since listing</div>
         <button className="th th-num" onClick={() => setSortKey("ret")}>{HORIZON_LABELS[horizon]} {arrow("ret")}</button>
-        <button className="th th-num" onClick={() => setSortKey("alpha")}>Alpha {arrow("alpha")}</button>
+        <button className="th th-num" onClick={() => setSortKey("alpha")}>Excess {arrow("alpha")}</button>
         <div className="th th-src">Source</div>
       </div>
 
@@ -95,7 +95,7 @@ export default function IndexTable({ listings, horizon, benchName }: Props) {
                   {rv !== null ? (
                     <span style={{ color: signColor(av) }}>{pct(av)}</span>
                   ) : (
-                    <span className="partial" title="Alpha since listing (full horizon not yet elapsed)">
+                    <span className="partial" title="Excess since listing (full horizon not yet elapsed)">
                       {pct(alpha(l, "LIVE"))}
                     </span>
                   )}
@@ -128,10 +128,11 @@ export default function IndexTable({ listings, horizon, benchName }: Props) {
                         <DetailStat label="Since listing" v={ret(l, "LIVE")} />
                         <DetailStat label="1 week" v={ret(l, "1W")} />
                         <DetailStat label="1 month" v={ret(l, "1M")} />
-                        <DetailStat label={`Alpha (${HORIZON_LABELS[horizon]})`} v={av} accent />
+                        <DetailStat label={`Excess (${HORIZON_LABELS[horizon]})`} v={av} accent />
+                        <DetailStat label={`β-adj excess (${HORIZON_LABELS[horizon]})`} v={l.returns?.[horizon]?.beta_excess ?? null} />
                         <div className="detail-meta mono">
                           <div>listed {fmtDate(l.listing_date)} @ {l.entry_close?.toLocaleString()} {l.quote_asset}</div>
-                          <div>{l.days_live}d live · {l.qfex_symbol} · up to {l.max_leverage}× · {ASSET_CLASS_LABEL[l.asset_class] ?? l.asset_class}</div>
+                          <div>{l.days_live}d live · {l.qfex_symbol} · up to {l.max_leverage}× · β {l.beta ?? "—"}{l.beta_source === "assumed" ? " (assumed)" : ""} · {ASSET_CLASS_LABEL[l.asset_class] ?? l.asset_class}</div>
                           {l.source.announce_url ? (
                             <div><a href={l.source.announce_url} target="_blank" rel="noreferrer" className="src-link">announcing tweet ↗</a></div>
                           ) : (

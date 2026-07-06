@@ -12,6 +12,8 @@
 @import "@fontsource/ibm-plex-mono/400.css";
 @import "@fontsource/ibm-plex-mono/500.css";
 @import "@fontsource/ibm-plex-mono/600.css";
+@import "@fontsource/instrument-serif/400.css";
+@import "@fontsource/instrument-serif/400-italic.css";
 
 :root {
   /* ink canvas */
@@ -44,6 +46,7 @@
   --font-display: "Space Grotesk", system-ui, sans-serif;
   --font-ui: "Inter", system-ui, sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --font-serif: "Instrument Serif", Georgia, serif; /* QFEX editorial-italic accent */
 
   color-scheme: dark;
 }
@@ -91,3 +94,72 @@ a { color: inherit; text-decoration: none; }
 @media (prefers-reduced-motion: reduce) {
   * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
 }
+
+/* ============================================================
+   QFEX brand signature — editorial serif accent + split-flap
+   ticker tape (homage to the amber Solari board on qfex.com)
+   ============================================================ */
+
+/* the verdict lead-in borrows QFEX's grotesk + italic-serif headline move */
+.hero-answer .hl {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.32em;
+  letter-spacing: 0.005em;
+  color: var(--text);
+}
+
+/* ---- ticker tape ---- */
+.tape {
+  display: flex; align-items: center; gap: 18px;
+  height: 46px; margin: 0 0 0 0;
+  border-bottom: 1px solid var(--line-soft);
+  position: relative;
+}
+.tape-brand {
+  display: inline-flex; align-items: center; gap: 8px;
+  color: var(--gold); flex: 0 0 auto; padding-right: 4px;
+}
+.tape-brand-txt { font-size: 13px; font-weight: 600; letter-spacing: 0.18em; color: var(--text); }
+.tape-viewport {
+  position: relative; flex: 1 1 auto; overflow: hidden; height: 100%;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+}
+.tape-track {
+  display: flex; align-items: center; height: 100%; gap: 0;
+  width: max-content; will-change: transform;
+  animation: tape-scroll 90s linear infinite;
+}
+.tape-track.static { animation: none; }
+.tape:hover .tape-track { animation-play-state: paused; }
+@keyframes tape-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+.tape-cell {
+  display: inline-flex; align-items: baseline; gap: 7px;
+  padding: 0 16px; height: 22px; white-space: nowrap;
+  border-right: 1px solid var(--line-soft);
+  font-family: var(--font-mono); font-size: 12.5px;
+}
+.tape-arw { font-size: 8px; position: relative; top: -1px; font-style: normal; }
+.tape-arw.up { color: var(--pos); }
+.tape-arw.dn { color: var(--neg); }
+.tape-sym { color: var(--gold); font-weight: 600; letter-spacing: 0.06em; }
+.tape-val { color: var(--gold); opacity: 0.72; }
+
+.tape-cta {
+  flex: 0 0 auto; display: inline-flex; align-items: center; gap: 6px;
+  background: var(--text); color: var(--ink-900);
+  font-size: 12.5px; font-weight: 600; letter-spacing: 0.01em;
+  padding: 8px 15px; border-radius: 999px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.tape-cta:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(0,0,0,0.4); }
+
+@media (max-width: 640px) {
+  .tape-brand-txt { display: none; }
+  .tape-cta span { display: none; }
+  .tape { gap: 10px; }
+}
+@media (prefers-reduced-motion: reduce) { .tape-track { animation: none; } }

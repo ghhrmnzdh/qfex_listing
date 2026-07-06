@@ -11,6 +11,7 @@ import IndexTable from "./components/IndexTable";
 import LoadingScreen from "./components/LoadingScreen";
 import SyncOverlay from "./components/SyncOverlay";
 import Methodology from "./components/Methodology";
+import TickerTape from "./components/TickerTape";
 
 const FILTERS: { key: string; label: string; test: (c: string) => boolean }[] = [
   { key: "all", label: "All", test: () => true },
@@ -64,6 +65,7 @@ export default function App() {
   return (
     <div className="app">
       <div className="shell">
+        <TickerTape listings={data.listings} />
         <Hero data={data} />
 
         <section className="index-section">
@@ -71,8 +73,10 @@ export default function App() {
             <div>
               <h2 className="section-title">The index</h2>
               <p className="section-sub">
-                Every market on QFEX — priced from its own perp candles, returns and benchmark-adjusted
-                alpha, matched to the announcing tweet where one exists. Click any row for the full path.
+                Every market on QFEX — priced from its own perp candles, returns and excess return vs
+                the {data.benchmark.name} perp, matched to the announcing tweet where one exists. Click any
+                row for the full path. Filter to <b>Equities</b> for the stock-pick study (excess vs the
+                S&P is only an alpha proxy for equities).
               </p>
             </div>
             <div className="section-controls">
@@ -114,7 +118,7 @@ export default function App() {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
             >
-              <StatsBand ret={stats.return} alpha={stats.alpha} horizon={horizon} benchName={data.benchmark.name} />
+              <StatsBand ret={stats.return} alpha={stats.alpha} betaExcess={stats.betaExcess} filter={filter} horizon={horizon} benchName={data.benchmark.name} />
             </motion.div>
           </AnimatePresence>
 
@@ -129,9 +133,10 @@ export default function App() {
             {data.counts?.markets} markets · generated {new Date(data.generated).toLocaleString()}
           </div>
           <div className="foot-note">
-            Each market is priced from its own QFEX perpetual, entered at the first candle (its launch on QFEX). Alpha =
-            listing return minus the {data.benchmark.name} perp over the identical window. Horizons are calendar days
-            (QFEX trades 24/7). Not investment advice.
+            Each market is priced from its own QFEX perpetual, entered at the first candle (its launch on QFEX).
+            Excess return = listing return minus the {data.benchmark.name} perp over the identical window (β assumed 1,
+            so it is not a risk-adjusted alpha; for non-equities it is a spread, not an alpha). t-stats are clustered
+            by launch date. Horizons are calendar days (QFEX trades 24/7). Not investment advice.
           </div>
         </footer>
       </div>

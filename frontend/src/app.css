@@ -111,6 +111,8 @@
 .stat-label { font-size: 11.5px; color: var(--text-faint); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 10px; }
 .stat-value { font-size: 27px; font-weight: 500; letter-spacing: -0.01em; display: block; }
 .stat-sub { font-size: 11.5px; color: var(--text-faint); margin-top: 5px; }
+.stats-caveat { font-size: 11px; color: var(--text-faint); line-height: 1.6; margin-top: 12px; max-width: 96ch; }
+.stats-caveat b { color: var(--text-dim); font-weight: 600; }
 
 /* ====================== table ====================== */
 .table { border: 1px solid var(--line-soft); border-radius: var(--radius); overflow: hidden; }

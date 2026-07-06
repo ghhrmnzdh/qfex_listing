@@ -4,7 +4,8 @@ export interface ReturnRec {
   asset_return: number;
   exit_date: string;
   bench_return: number | null;
-  alpha: number | null;
+  alpha: number | null; // excess return (β=1); NOT a risk-adjusted alpha
+  beta_excess: number | null; // β-adjusted excess return
 }
 
 export interface PricePoint {
@@ -32,6 +33,8 @@ export interface Listing {
   max_leverage: number | null;
   status: string;
   underlier_price?: string | null;
+  beta?: number;
+  beta_source?: "shrunk" | "assumed";
   source: Source;
   listing_date?: string;
   entry_close?: number;
@@ -52,17 +55,24 @@ export interface StatBlk {
   best?: number;
   worst?: number;
   stdev?: number;
-  t_stat?: number;
+  t_stat?: number; // naive i.i.d.
+  t_cluster?: number; // clustered by launch date
+  n_clusters?: number;
+  se_cluster?: number;
+  p_sign?: number;
+  cohort_first?: string;
+  cohort_last?: string;
 }
 
 export interface HorizonStat {
-  return: StatBlk;
-  alpha: StatBlk;
+  all: { return: StatBlk; excess: StatBlk };
+  equity: { return: StatBlk; excess: StatBlk; beta_excess: StatBlk };
 }
 
 export interface Summary {
   horizons: Record<HorizonKey, HorizonStat>;
   n_listings: number;
+  n_equity?: number;
 }
 
 export interface EventPoint {

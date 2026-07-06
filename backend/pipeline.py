@@ -158,6 +158,49 @@ def _bar_at_or_before(bars: list[dict], d: str):
     return prev
 
 
+MIN_BETA_OBS = 20      # daily-return pairs required to attempt a β estimate
+BETA_PRIOR = 1.0       # Vasicek prior mean (the market)
+BETA_PRIOR_VAR = 0.5 ** 2  # cross-sectional dispersion of true betas (prior variance)
+
+
+def estimate_beta(bars: list[dict], bench_bars: list[dict]) -> tuple[float, str]:
+    """Market beta of a listing vs the benchmark, from CONCURRENT daily returns,
+    Vasicek-shrunk toward the market (β=1).
+
+    QFEX listings have no pre-launch history, so β can only be estimated on the
+    post-listing window itself — a short, in-sample window whose raw OLS β is very
+    noisy (e.g. a 25-day name can print β≈9 or β≈−8 from a couple of outliers).
+    We therefore shrink each raw β toward 1 by w = τ²/(τ² + se(β)²): estimates with
+    a large standard error (short/noisy windows) collapse to ≈1, while long, clean
+    series (e.g. CRWV, 179d) keep most of their raw β. Falls back to β=1 (source
+    'assumed') when there isn't enough history to estimate at all."""
+    a_ret, m_ret = [], []
+    for i in range(1, len(bars)):
+        p0, p1 = bars[i - 1]["close"], bars[i]["close"]
+        if p0 <= 0:
+            continue
+        b0 = _last_close_on_or_before(bench_bars, bars[i - 1]["date"])
+        b1 = _last_close_on_or_before(bench_bars, bars[i]["date"])
+        if not b0 or not b1 or b0 <= 0:
+            continue
+        a_ret.append(p1 / p0 - 1.0)
+        m_ret.append(b1 / b0 - 1.0)
+    n = len(m_ret)
+    if n < MIN_BETA_OBS:
+        return BETA_PRIOR, "assumed"
+    mbar = sum(m_ret) / n
+    abar = sum(a_ret) / n
+    sxx = sum((m - mbar) ** 2 for m in m_ret)
+    if sxx <= 0 or n <= 2:
+        return BETA_PRIOR, "assumed"
+    beta_raw = sum((a - abar) * (m - mbar) for a, m in zip(a_ret, m_ret)) / sxx
+    a0 = abar - beta_raw * mbar
+    ssr = sum((a - (a0 + beta_raw * m)) ** 2 for a, m in zip(a_ret, m_ret))
+    se2 = (ssr / (n - 2)) / sxx  # sampling variance of the OLS β
+    w = BETA_PRIOR_VAR / (BETA_PRIOR_VAR + se2)  # Vasicek shrinkage weight
+    return w * beta_raw + (1 - w) * BETA_PRIOR, "shrunk"
+
+
 def compute(market: dict, bench_bars: list[dict], tweet_idx: dict, force: bool) -> dict:
     sym = market["symbol"]
     base = market.get("base_asset", sym.split("-")[0])
@@ -203,6 +246,10 @@ def compute(market: dict, bench_bars: list[dict], tweet_idx: dict, force: bool) 
     bench_entry = _last_close_on_or_before(bench_bars, entry["date"])
     latest_data = bars[-1]["date"]
 
+    beta, beta_source = estimate_beta(bars, bench_bars)
+    out["beta"] = round(beta, 4)
+    out["beta_source"] = beta_source
+
     def window(exit_bar) -> dict:
         r = exit_bar["close"] / entry_close - 1.0
         rec = {"asset_return": round(r, 6), "exit_date": exit_bar["date"]}
@@ -210,10 +257,12 @@ def compute(market: dict, bench_bars: list[dict], tweet_idx: dict, force: bool) 
         if bench_entry and be:
             br = be / bench_entry - 1.0
             rec["bench_return"] = round(br, 6)
-            rec["alpha"] = round(r - br, 6)
+            rec["alpha"] = round(r - br, 6)  # excess return (β assumed 1); NOT risk-adj alpha
+            rec["beta_excess"] = round(r - beta * br, 6)  # β-adjusted excess return
         else:
             rec["bench_return"] = None
             rec["alpha"] = None
+            rec["beta_excess"] = None
         return rec
 
     entry_d = date.fromisoformat(entry["date"])
@@ -263,36 +312,114 @@ def event_study(listings: list[dict], max_days: int = 90) -> list[dict]:
     return curve
 
 
-def _blk(xs: list[float]) -> dict:
+def _cluster_se(xs: list[float], clusters: list, mean: float) -> tuple[float | None, int]:
+    """Cluster-robust (CR1) standard error of the mean, clustering by `clusters`.
+
+    Listings that launch on the same calendar day share one market shock, so their
+    excess returns are cross-sectionally correlated and are NOT independent draws.
+    We therefore cluster on launch date: residuals are summed within each cluster
+    before squaring, which is the standard Liang–Zeberger / CR1 estimator for the
+    mean. Returns (se, n_clusters); se is None when there are <2 clusters."""
+    groups: dict = {}
+    for x, g in zip(xs, clusters):
+        groups.setdefault(g, 0.0)
+        groups[g] += (x - mean)
+    G = len(groups)
+    n = len(xs)
+    if G < 2 or n < 2:
+        return None, G
+    meat = sum(s * s for s in groups.values())
+    # CR1 small-sample correction: G/(G-1) * (n-1)/(n-K), K=1 -> G/(G-1)
+    var = (G / (G - 1)) * meat / (n * n)
+    return (math.sqrt(var) if var > 0 else None), G
+
+
+def _sign_test_p(wins: int, n: int) -> float | None:
+    """Two-sided exact binomial (sign) test p-value that P(x>0) != 0.5.
+
+    Robust to the heavy right-skew at long horizons where the t-test's normality
+    assumption fails — it only asks whether listings beat the benchmark more often
+    than a coin, ignoring the size of the monster winners."""
+    if n < 2:
+        return None
+    pmf = 0.5 ** n  # Binomial(n, 0.5) pmf, starting at P(X = 0)
+    probs = [pmf]
+    for k in range(1, n + 1):
+        pmf = pmf * (n - k + 1) / k  # pmf(k) from pmf(k-1)
+        probs.append(pmf)
+    lower = sum(probs[: wins + 1])   # P(X <= wins)
+    upper = sum(probs[wins:])        # P(X >= wins)
+    return round(min(1.0, 2.0 * min(lower, upper)), 4)
+
+
+def _blk(xs: list[float], clusters: list | None = None) -> dict:
     if not xs:
         return {"n": 0}
     n = len(xs)
     mean = statistics.mean(xs)
-    sd = statistics.pstdev(xs) if n > 1 else 0.0
+    sd = statistics.stdev(xs) if n > 1 else 0.0  # SAMPLE stdev (÷ n-1) for inference
+    wins = sum(1 for x in xs if x > 0)
     out = {"n": n, "mean": round(mean, 6), "median": round(statistics.median(xs), 6),
-           "win_rate": round(sum(1 for x in xs if x > 0) / n, 4),
+           "win_rate": round(wins / n, 4),
            "best": round(max(xs), 6), "worst": round(min(xs), 6), "stdev": round(sd, 6)}
     if n > 1 and sd > 0:
-        out["t_stat"] = round(mean / (sd / math.sqrt(n)), 3)
+        out["t_stat"] = round(mean / (sd / math.sqrt(n)), 3)  # naive i.i.d. t (overstated)
+    if clusters is not None:
+        se, G = _cluster_se(xs, clusters, mean)
+        out["n_clusters"] = G
+        if se and se > 0:
+            out["se_cluster"] = round(se, 6)
+            out["t_cluster"] = round(mean / se, 3)  # honest t: dof = G-1
+    out["p_sign"] = _sign_test_p(wins, n)
     return out
 
 
+def _horizon_block(listings: list[dict], label: str, field: str) -> dict:
+    """Aggregate one metric (`asset_return`/`alpha`/`beta_excess`) over a subset,
+    clustered by launch date, tagged with the cohort's N and launch-date range."""
+    xs, clusters, dates = [], [], []
+    for L in listings:
+        if not L.get("ok"):
+            continue
+        rec = L["returns"].get(label)
+        if not rec or rec.get(field) is None:
+            continue
+        xs.append(rec[field])
+        clusters.append(L.get("listing_date"))
+        dates.append(L.get("listing_date"))
+    blk = _blk(xs, clusters)
+    if dates:
+        blk["cohort_first"] = min(dates)
+        blk["cohort_last"] = max(dates)
+    return blk
+
+
 def summarize(listings: list[dict]) -> dict:
+    """Per-horizon stats, split by universe.
+
+    `all`      = every priced market (excess return is vs the S&P perp — for the
+                 non-equity markets this is a spread, not an alpha; kept for context).
+    `equity`   = stock-picks only, the object of the study. `beta_excess` is the
+                 β-adjusted excess return (β estimated concurrently, in-sample).
+    "excess" is return − benchmark (β assumed 1); it is NOT a risk-adjusted alpha."""
     labels = list(HORIZONS.keys()) + ["LIVE"]
+    equity = [L for L in listings if L.get("ok") and L["product_category"] not in NON_EQUITY]
     per = {}
     for label in labels:
-        rets, alphas = [], []
-        for L in listings:
-            if not L.get("ok"):
-                continue
-            rec = L["returns"].get(label)
-            if not rec:
-                continue
-            rets.append(rec["asset_return"])
-            if rec.get("alpha") is not None:
-                alphas.append(rec["alpha"])
-        per[label] = {"return": _blk(rets), "alpha": _blk(alphas)}
-    return {"horizons": per, "n_listings": sum(1 for L in listings if L.get("ok"))}
+        per[label] = {
+            "all": {
+                "return": _horizon_block(listings, label, "asset_return"),
+                "excess": _horizon_block(listings, label, "alpha"),
+            },
+            "equity": {
+                "return": _horizon_block(equity, label, "asset_return"),
+                "excess": _horizon_block(equity, label, "alpha"),
+                "beta_excess": _horizon_block(equity, label, "beta_excess"),
+            },
+        }
+    return {"horizons": per,
+            "n_listings": sum(1 for L in listings if L.get("ok")),
+            "n_equity": len(equity)}
 
 
 def build(progress=None) -> dict:
@@ -412,11 +539,15 @@ def main():
     c = out["counts"]
     print(f"Wrote index.json — {c['priced']}/{c['markets']} markets priced, "
           f"{c['with_tweet']} matched to a tweet.")
-    for label in ["1W", "1M"]:
-        a = out["summary"]["horizons"][label]["alpha"]
-        if a.get("n"):
-            print(f"  {label}: mean alpha {a['mean']*100:+.2f}% "
-                  f"(win {a['win_rate']*100:.0f}%, n={a['n']}, t={a.get('t_stat','?')})")
+    print("Equity-only excess return vs S&P (t_naive = i.i.d.; t_clus = clustered by launch date):")
+    for label in ["1D", "1W", "1M", "3M"]:
+        e = out["summary"]["horizons"][label]["equity"]["excess"]
+        b = out["summary"]["horizons"][label]["equity"]["beta_excess"]
+        if e.get("n"):
+            print(f"  {label:3} excess {e['mean']*100:+5.2f}%  win {e['win_rate']*100:.0f}%  "
+                  f"n={e['n']} ({e.get('n_clusters','?')} clusters)  "
+                  f"t_naive={e.get('t_stat','?')}  t_clus={e.get('t_cluster','n/a')}  "
+                  f"p_sign={e.get('p_sign','?')}  |  β-adj {b['mean']*100:+5.2f}%")
 
 
 if __name__ == "__main__":
